@@ -1,0 +1,61 @@
+version: '2'
+
+services:
+
+    site:
+        build: services/nginx
+        ports:
+            - "80:80"
+            - "443:443"
+        restart: always
+        volumes:
+            - ./prestashop:/html/:rw,cached
+        networks:
+            - front
+
+    php-fpm:
+        build: services/php-fpm
+        environment:
+            DATABASE_URL: mysql://foo:bar@mysql:3306/foo
+            DATABASE_HOST: 127.0.0.1
+        restart: always
+        volumes:
+            - ./prestashop:/html/:rw,cached
+            - ./services/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+        networks:
+            - front
+            - back
+
+    mysql:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: admin
+            MYSQL_DATABASE: foo
+            MYSQL_USER: foo
+            MYSQL_PASSWORD: bar
+        volumes:
+            - mysql_data:/var/lib/mysql
+            - ./services/mysql/utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf:ro,cached
+        networks:
+            - back
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:4.7
+        ports:
+            - "9010:80"
+        environment:
+            PMA_HOST: mysql
+            PMA_USER: foo
+            PMA_PASSWORD: bar
+        networks:
+            - back
+
+volumes:
+    mysql_data:
+        driver: local
+
+networks:
+    front:
+        driver: bridge
+    back:
+        driver: bridge
