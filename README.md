@@ -2,14 +2,14 @@
 
 ### 1. Init prestashop folder
 
-`cd eklipsis`
+`cd simple-presta-nginx`
 
 run the install script  with :
-`./install.sh`
+`./i.sh`
 
 A [prestashop/](prestashop) folder may appear
 
-> Warning : the last command is dangerous in production (chmod 777)
+> WARNING : the last command is dangerous in production (chmod 777)
 
 ### 2. Launch containers
 
@@ -21,23 +21,30 @@ Database host : `mysql`
 Database name : `foo`
 Database user : `foo`
 Database pass : `bar`
+If you already have database tables, refer to [Last section](#-4.-existing-db)
 
-### 3. Start
+#### Close Prestashop install tab 
+
+### 3. Before start
+> WARNING : Don't launch back-office before next command
+
 Remove install folder and rename back office
 `./after_install.sh`
-### Infos :
+
+## Useful :
 - [localhost:80](http://localhost) to see your website
 - [localhost:9010](http://localhost:9010) for phpmyadmin
 
-##### Stop server and services
+##### Manage containers
+Stop with `docker-compose stop` and restart with `docker-compose start`
+##### Remove containers (free RAM)
 `docker-compose down`
 
+##### Rebuild nginx with additionnal configs
+`docker-compose build site`
 
-# Pour EKLIPSIS (sauter toutes les étapes précédentes)
-
-1. importer la base de donnée
-- [localhost:9010](http://localhost:9010) for phpmyadmin
-- Cliquer sur la base de donnée foo
-- Importer et selectionner ce fichier [data/prestashop.sql.zip](data/prestashop.sql.zip)
-
-2. Selectionner le thème dans le back office
+### 4. Existing db
+- Select the same prefix of your existing database
+- Enter [phpmyadmin](http://localhost:9010)
+- Delete all tables
+- Select foo database and import your SQL.zip dump

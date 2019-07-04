@@ -35,7 +35,7 @@ services:
             MYSQL_PASSWORD: bar
         volumes:
             - mysql_data:/var/lib/mysql
-            - ./services/mysql/utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf:ro,cached
+            - ./services/mysql/utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf
         networks:
             - back
 

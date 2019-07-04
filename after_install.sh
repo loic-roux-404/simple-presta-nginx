@@ -1,8 +1,11 @@
+#Dot this juste before last step of install
 cd prestashop;
 rm -rf install;
 
-#change this command if backoffice has different name (admin)
-mv admin010zilii3 backoffice
+cd ../;
+mv theme-dev prestashop/themes/;
 
-#move themes
-mv data/mon_theme prestashop/themes
+cd prestashop;
+#change this line if admin folder has not this name
+mv admin admin-dev;
+cd ../;
