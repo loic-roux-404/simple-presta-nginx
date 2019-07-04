@@ -31,6 +31,16 @@ If you already have database tables, refer to [Last section](#-4.-existing-db)
 Remove install folder and rename back office
 `./after_install.sh`
 
+### 4. Developp
+`cd prestashop/themes/theme-dev/dev`<br>
+- Install dependencies
+`npm install`
+- Scss :
+`gulp watch`
+- JS (and post processing css):
+`npm run watch`
+
+
 ## Useful :
 - [localhost:80](http://localhost) to see your website
 - [localhost:9010](http://localhost:9010) for phpmyadmin
@@ -43,7 +53,7 @@ Stop with `docker-compose stop` and restart with `docker-compose start`
 ##### Rebuild nginx with additionnal configs
 `docker-compose build site`
 
-### 4. Existing db
+### 5. Existing db
 - Select the same prefix of your existing database
 - Enter [phpmyadmin](http://localhost:9010)
 - Delete all tables
