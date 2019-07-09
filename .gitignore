@@ -1,7 +1,9 @@
-#Comment this line if you want git push this big file
-.DS_STORE
+.DS_Store
 .vscode
 .idea
-/prestashop
-/node_modules
-/vendor
+prestashop/**
+!prestashop/themes/classic-rocket/
+
+
+node_modules/
+vendor/
