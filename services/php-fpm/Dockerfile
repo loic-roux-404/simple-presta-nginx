@@ -1,6 +1,6 @@
-FROM php:fpm
+FROM php:7.1-fpm
 
-LABEL Loic ROUX <schlpbch@gmail.com>
+LABEL Loic ROUX <loicroux.com>
 
 
 USER root
@@ -21,10 +21,17 @@ RUN apt-get install -y \
 RUN apt-get install -y libicu-dev \
     && docker-php-ext-install -j$(nproc) intl
 
-#RUN apt-get install git -y \
-#    && git clone -b php7 https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
-#    && docker-php-ext-install -j$(nproc) redis
+# install xdebug
+RUN pecl install xdebug \
+&& docker-php-ext-enable xdebug \
+&& echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+&& echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+&& echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.remote_enable=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+&& echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-#Adding MySQL configuration
-#COPY redis.ini /etc/php/mods-available/redis.ini
+
+# more php config
 

@@ -21,7 +21,7 @@ services:
         restart: always
         volumes:
             - ./prestashop:/html/:rw,cached
-            - ./services/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+            - ./services/custom-php.ini:/usr/local/etc/php/conf.d/custom.ini
         networks:
             - front
             - back
@@ -34,7 +34,7 @@ services:
             MYSQL_USER: foo
             MYSQL_PASSWORD: bar
         volumes:
-            - mysql_data:/var/lib/mysql
+            - mysql_data:/var/lib/mysql:cached
             - ./services/mysql/utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf
         networks:
             - back
@@ -49,6 +49,8 @@ services:
             PMA_PASSWORD: bar
         networks:
             - back
+
+
 
 volumes:
     mysql_data:
