@@ -1,9 +1,12 @@
-.DS_Store
+.DS_STORE
 .vscode
 .idea
-prestashop/**
-!prestashop/themes/classic-rocket/
 
+!/prestashop
+/prestashop/*
+!/prestashop/themes
+/prestashop/themes/*
+!/prestashop/themes/classic-rocket
 
-node_modules/
-vendor/
+/node_modules
+/vendor

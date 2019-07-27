@@ -23,7 +23,7 @@ services:
         restart: always
         volumes:
             - ./prestashop:/html/:rw,cached
-            - ./services/custom-php.ini:/usr/local/etc/php/conf.d/custom.ini
+            - ./services/php-fpm/custom-php.ini:/usr/local/etc/php/conf.d/custom.ini
         networks:
             - front
             - back
