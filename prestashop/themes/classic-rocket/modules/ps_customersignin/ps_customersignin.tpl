@@ -22,36 +22,37 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="_desktop_user_info" class="ml-4">
-  <div class="user-info">
-    {if $logged}
-      <a
-        class="logout d-none d-md-inline-block text-body"
-        href="{$logout_url}"
-        rel="nofollow"
-      >
-        <i class="material-icons md-24">&#xE7FF;</i>
-        {l s='Sign out' d='Shop.Theme.Actions'}
-      </a>
-      <a
-        class="account text-body"
-        href="{$my_account_url}"
-        title="{l s='View my customer account' d='Shop.Theme.Customeraccount'}"
-        rel="nofollow"
-      >
-        <i class="material-icons d-md-none logged">&#xE7FF;</i>
-        <span class="d-none d-md-inline pl-2">{$customerName}</span>
-      </a>
-    {else}
-      <a
-        href="{$my_account_url}"
-        class="text-body"
-        title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}"
-        rel="nofollow"
-      >
-        <i class="material-icons">&#xE7FF;</i>
-        <span class="d-none d-md-inline">{l s='Sign in' d='Shop.Theme.Actions'}</span>
-      </a>
-    {/if}
-  </div>
+<div id="_desktop_user_info" class="border-left">
+    <div class="user-info">
+        {if $logged}
+            <a
+                    class="d-md-inline-block account text-body px-3"
+                    href="{$my_account_url}"
+                    title="{l s='View my customer account' d='Shop.Theme.Customeraccount'}"
+                    rel="nofollow"
+            >
+                <i class="material-icons md-24">&#xE7FF;</i>
+                <span class="d-none d-md-inline pl-2">{$customerName}</span>
+            </a>
+            <a
+                    class="logout d-none d-md-inline-block text-body px-3 border-left"
+                    href="{$logout_url}"
+                    rel="nofollow"
+            >
+                <i class="material-icons d-md-none logged">&#xE7FF;</i>
+
+                {l s='Sign out' d='Shop.Theme.Actions'}
+            </a>
+        {else}
+            <a
+                    href="{$my_account_url}"
+                    class="d-md-inline-block text-body px-3"
+                    title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}"
+                    rel="nofollow"
+            >
+                <i class="material-icons">&#xE7FF;</i>
+                <span class="d-none d-md-inline">{l s='Sign in' d='Shop.Theme.Actions'}</span>
+            </a>
+        {/if}
+    </div>
 </div>

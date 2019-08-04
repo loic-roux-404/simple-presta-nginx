@@ -2,6 +2,10 @@
   @extend .align-items-stretch;
   > a{
     margin-bottom: $spacer;
+
+    .link-item{
+      box-shadow: none;
+    }
   }
   .link-item{
     @extend .card;
@@ -11,6 +15,7 @@
     text-transform: uppercase;
     font-weight: 700;
     height: 100%;
+
     i{
       margin: 0 auto $spacer;
       font-size: $font-size-base*3;
@@ -18,7 +23,13 @@
     }
   }
 }
-
+.page-footer--my-account{
+  @extend .btn;
+  @extend .btn-danger;
+  a {
+    @extend .text-white;
+  }
+}
 .address{
   @extend .card;
 }
@@ -34,4 +45,28 @@
   display: flex;
   justify-content: space-between;
 
+}
+
+
+#logout-link {
+  color: $danger;
+  &:hover,  .logout{
+    color:darken($danger,1.3);
+  }
+  span {
+    border-color: $danger;
+    border-width: $border-size-lg;
+  }
+}
+
+.account{
+  span{
+    color:$primary;
+    font-weight: $font-weight-bolder;
+  }
+}
+
+
+.user-info a span:hover:not(.account){
+  color:$primary;
 }
