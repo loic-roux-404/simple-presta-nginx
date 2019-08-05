@@ -6360,6 +6360,9 @@ h1,
   transform: rotateZ(180deg); }
 
 /* CART */
+.mobile-cart .blockcart {
+  padding-right: 1.5em; }
+
 .promo-code {
   margin-left: -1.25rem;
   margin-right: -1.25rem;
