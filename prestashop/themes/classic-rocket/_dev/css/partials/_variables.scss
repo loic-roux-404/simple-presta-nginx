@@ -24,16 +24,16 @@ $link-hover-decoration: none;
 // Transitions
 //
 // Custom bezier
-$bezier : cubic-bezier(.76,.01,.19,1.42);
-
-
+$bezier: cubic-bezier(.76, .01, .19, 1.42);
+$bezier2: cubic-bezier(.23, .19, .83, .23);
+$bezier3: cubic-bezier(.51, .39, 0, .88);
 
 
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $headings-font-family: "Noto Sans", $font-family-sans-serif;
 
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`

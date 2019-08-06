@@ -1,92 +1,186 @@
 $bg-offset: 21.5vh;
 
 .carousel {
+  position: relative;
   margin-bottom: 8%;
-}
 
-.carousel a {
-  display: block;
-  z-index:2;
-
-  &:not(:first-child) {
-    display: none;
-  }
-}
-
-.slider-caption {
-  position: absolute;
-  //top:0;
-  width: 100%;
-  margin-bottom: 0;
-  color: #fff;
-  font-size: .7rem;
-
-  .display-1 {
-    margin-bottom: .2em;
+  .slick-list, .slick-list {
+    position: static;
   }
 
-  @media (min-width: map_get($grid-breakpoints, "md")) {
-    top: 30%;
-    margin: auto 0;
-    font-size: inherit;
+  a {
+    display: block;
+    z-index: 2;
+
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+
+  .slider-caption {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-40%);
+    width: 100vw;
+    margin-bottom: 0;
+    color: #fff;
+    font-size: .7rem;
+    z-index: 4;
+
+    * {
+      z-index: 4;
+    }
 
     .display-1 {
-      margin-bottom: inherit;
+      margin-bottom: .2em;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, "lg")) {
+      //top: 25%;
+      //margin: auto 0;
+      font-size: inherit;
+
+      .display-1 {
+        margin-bottom: inherit;
+      }
     }
   }
 }
 
-//deco background
-#index .rc::before {
-  content: "";
-  background: $primary;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 120%;
-  width: 40%;
-  z-index: 1;
-  box-shadow: 90px 3px 80px 70px $primary;
-}
 
-.slider-caption {
-  z-index: 2;
-}
+.carousel {
 
-.carousel::after {
-  content: "";
-  background: 50% 0 /cover no-repeat url('../img/itib-bg.svg'), -16% -20%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
-  //background:50% 0/cover no-repeat
-  width: 110%;
-  height: $bg-offset;
-  position: absolute;
-  left: -1em;
-  display: none;
+  &::after {
+    content: '';
+    background: center bottom /100% no-repeat url('../img/itib-bg.svg'); //, -16% -15%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
+    //background:50% 0/cover no-repeat;
+    width: 110%;
+    height: 100%;
+    position: absolute;
+    left: -1em;
+    display: none;
 
+    /////- width
+    @media (min-width: map_get($grid-breakpoints, "sm")) {
+      bottom: -9%;
+      transform: translateY(9%);
+      display: block;
+    }
 
-  @media (min-width: map_get($grid-breakpoints, "sm")) {
-    bottom: -8vh;
-    transform: translateY(8vh);
-    display: block;
-  }
-  @media (min-width: map_get($grid-breakpoints, "md")) {
-    bottom: -7.4vh;
-    transform: translateY(7.4vh);
-  }
-  @media (min-width: map_get($grid-breakpoints, lg)) {
-    bottom: -7.1vh;
-    transform: translateY(7.1vh);
-  }
-  @media (min-width: map_get($grid-breakpoints, "xl")) {
-    bottom: -4vh;
-    transform: translateY(4vh);
-  }
-  @media (min-width: 1500px) {
-    bottom: -3vh;
-    transform: translateY(3vh);
+    @media (min-width: 1500px) {
+      bottom: -5%;
+      transform: translateY(5%);
+    }
   }
 }
 
+//animate
+$sep: 20%;
+$m: 100%;
+
+//timings
+$d: .68s;
+$t: .5s;
+.slick-slide {
+
+  .rc::before, .rc::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    background-image: linear-gradient(to left, $primary, darken($primary, 0.01));
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 120%;
+    width: $sep;
+    z-index: 2;
+    transition: transform $d $bezier2, box-shadow .79s ease-in;
+    box-shadow: 0 0 0 0 $primary;
+  }
+
+  //backgrounds
+  .rc::before {
+    left: 0;
+    transform: translateY($m);
+  }
+
+  .rc::after {
+    left: $sep;
+    transform: translateY(-$m);
+  }
+
+  //toggle animations
+  &.slick-current {
+    .rc::after, &.slick-current .rc::before {
+      transform: translateY(0);
+    }
+
+    .rc::after {
+      animation: shdw $t $d $bezier3 forwards;
+    }
+  }
+}
+
+
+//text
+.enter-text-anime {
+  animation: enter-txt $t $d $bezier forwards;
+}
+
+.exit-text-anime {
+  animation: exit-txt $t $d $bezier forwards;
+}
+
+$k: 0.35;
+
+$Y: 10em;
+
+@mixin tsY() {
+  transform: translateY($Y);
+}
+
+
+@each $el, $i in $toAnim {
+
+  .slick-slide #{unquote($el)} {
+    transition: opacity 2s ;
+    opacity: 0;
+    @include tsY();
+  }
+
+  .slick-current #{unquote($el)} {
+    animation: enter-txt $t $k+unquote("s") $bezier forwards;
+  }
+
+
+  .slick-slide:not(.slick-current) {
+
+    #{unquote($el)} {
+      animation: exit-txt $t $k+unquote("s") $bezier forwards;
+    }
+  }
+
+  $k: $k+0.2;
+}
+
+@keyframes shdw {
+  to {
+    box-shadow: 90px 3px 80px 70px $primary;
+  }
+}
+
+@keyframes enter-txt {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes exit-txt {
+  to {
+    opacity: 0;
+    @include tsY();
+  }
+}
 
 //displays settings
 .slick-slide:not(.slick-current) .img-carousel.lazyload {
@@ -97,4 +191,6 @@ $bg-offset: 21.5vh;
   position: absolute;
   top: 0;
 }
+
+
 

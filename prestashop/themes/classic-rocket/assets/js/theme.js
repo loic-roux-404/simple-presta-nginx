@@ -758,7 +758,10 @@ function () {
           prevArrow: "<button type=\"button\" class=\"btn btn-link slick-prev slick-arrow\"><i class=\"material-icons left\">&#xE314;</i></button>",
           nextArrow: "<button type=\"button\" class=\"btn btn-link slick-next slick-arrow\"><i class=\"material-icons right\">&#xE315;</i></button>"
         });
-      });
+      }); // $('.slider-caption .display-1, .slider-caption p , .slider-caption h3 ').each(function () {
+      //     let t = this.textContent.replace(/([A-z0-9'<>/]+)/g, '<span class="word">$1</span>');
+      //     this.innerHTML = t;
+      // })
     }
   }]);
 

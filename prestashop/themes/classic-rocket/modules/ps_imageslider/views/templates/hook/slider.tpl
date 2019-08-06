@@ -33,7 +33,7 @@
 "autoplaySpeed":{/literal}{$homeslider.speed}{literal}
 }{/literal}'{/strip}{/if}>
         {foreach from=$homeslider.slides item=slide name='homeslider'}
-            <a href="{$slide.url}">
+            <a href="{$slide.url}" class="slide-link">
                 <div class="rc" style="padding-top:{$paddingbottom}%">
                     <img data-src="{$slide.image_url}"
                          alt="{$slide.legend|escape}"
@@ -43,22 +43,20 @@
                              alt="{$slide.legend|escape}">
                     </noscript>
 
-                    {if $slide.title || $slide.description}
-                        <div class="slider-caption">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <p class="display-1 text-uppercase">{$slide.title}</p>
-                                        <div class="caption-description">{$slide.description nofilter}</div>
-                                    </div>
+                </div>
+
+                {if $slide.title || $slide.description}
+                    <div class="slider-caption">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-5 col-8">
+                                    <p class="display-1 text-uppercase">{$slide.title}</p>
+                                    <div class="caption-description">{$slide.description nofilter}</div>
                                 </div>
                             </div>
                         </div>
-                    {/if}
-
-                </div>
-
-
+                    </div>
+                {/if}
             </a>
         {/foreach}
     </div>

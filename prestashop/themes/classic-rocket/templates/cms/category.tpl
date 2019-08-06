@@ -46,6 +46,9 @@
       <ul>
         {foreach from=$cms_pages item=cms_page}
           <li><a href="{$cms_page.link}">{$cms_page.meta_title}</a></li>
+
+
+
         {/foreach}
       </ul>
     {/if}
