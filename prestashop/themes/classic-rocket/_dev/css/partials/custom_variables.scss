@@ -14,7 +14,10 @@ $header-bg: $white;
 $footer-bg: $white;
 $wrapper-bg: #f1f1f1;
 //for svg background
-$bg-offset:20vh;
+$bg-offset: 20vh;
+
+//spacing
+$spacer-bloc: 2rem;
 
 //product miniature
 
@@ -65,9 +68,9 @@ $menu-sub-mobile-bg-color: $wrapper-bg;
 $h1-text-transform: uppercase;
 
 //footer
-$footer-margin-top: $spacer;
+$footer-margin-top: $spacer-bloc;
 $footer-padding-top: $spacer;
 
 //elem to anime (slider)
 
-$toAnim:('.display-1', 'h3','p', 'h1', 'h2', 'h4', 'h5', 'h6', 'strong');
+$toAnim: ('.display-2', 'h3', 'p', 'h1', 'h2', 'h4', 'h5', 'h6', 'strong');

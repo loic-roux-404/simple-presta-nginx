@@ -35,7 +35,7 @@
                 <span class="d-none d-md-inline pl-2">{$customerName}</span>
             </a>
             <a
-                    class="logout d-none d-md-inline-block text-body px-3 border-left"
+                    class="logout d-none d-md-inline-block px-3 border-left"
                     href="{$logout_url}"
                     rel="nofollow"
             >

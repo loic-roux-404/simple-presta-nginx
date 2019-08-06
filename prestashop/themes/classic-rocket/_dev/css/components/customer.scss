@@ -1,46 +1,96 @@
-.account-links{
+/*HEADER*/
+
+//circle size
+$cs: 100px;
+
+.account-links {
   @extend .align-items-stretch;
-  > a{
+
+  > a {
     margin-bottom: $spacer;
 
-    .link-item{
-      box-shadow: none;
+    .link-item {
+      box-shadow: unset;
+      border-color: transparent;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .4s $bezier2;
+
+      p,i, span {
+        z-index: 1;
+      }
+
+      &::after {
+        content: "";
+        @include abs-equal;
+        height: $cs;
+        width: $cs;
+        background: $gray-200;
+        border-radius: 50%;
+        opacity: 0;
+        z-index: 0;
+        transition: opacity 0.25s $bezier2, border-radius 1.25s $bezier3, width .45s $bezier, height .45s $bezier;
+      }
+    }
+
+
+    $darker-pr: darken($primary, 10%);
+
+    &:hover {
+
+      i, .link-item {
+        color: $darker-pr;
+      }
+
+      .link-item::after {
+        content: "";
+        width:70%;
+        height:100%;
+        opacity: .7;
+        border-radius: unset;
+      }
     }
   }
-  .link-item{
+
+  .link-item {
     @extend .card;
     @extend .shadow;
     padding: $spacer;
     text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
     height: 100%;
 
-    i{
+    i {
       margin: 0 auto $spacer;
       font-size: $font-size-base*3;
 
     }
   }
 }
-.page-footer--my-account{
+
+.page-footer--my-account {
   @extend .btn;
   @extend .btn-danger;
+
   a {
     @extend .text-white;
   }
 }
-.address{
+
+.address {
   @extend .card;
 }
-.address-header{
+
+.address-header {
   @extend .card-header;
   background-color: transparent;
 }
-.address-body{
+
+.address-body {
   @extend .card-body;
 }
-.address-footer{
+
+.address-footer {
   @extend .card-footer;
   display: flex;
   justify-content: space-between;
@@ -50,23 +100,31 @@
 
 #logout-link {
   color: $danger;
-  &:hover,  .logout{
-    color:darken($danger,1.3);
+
+  &:hover, .logout, i, span {
+    color: darken($danger, 1.3);
   }
-  span {
-    border-color: $danger;
-    border-width: $border-size-lg;
+
+}
+
+.logout {
+  color: $gray-700;
+  transition: color .4s $bezier;
+
+  &:hover {
+    color: $danger;
   }
 }
 
-.account{
-  span{
-    color:$primary;
+.account {
+  span {
+    color: $primary;
     font-weight: $font-weight-bolder;
   }
 }
 
 
-.user-info a span:hover:not(.account){
-  color:$primary;
+.user-info a span:hover:not(.account) {
+  color: $primary;
 }
+

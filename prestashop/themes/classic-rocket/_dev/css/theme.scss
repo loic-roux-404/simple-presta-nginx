@@ -1,6 +1,7 @@
 @import "partials/variables";
 @import "bootstrap";
 @import "partials/custom_variables";
+@import "partials/_mixins.scss";
 @import "partials/fonts";
 @import "partials/commons";
 @import "partials/lazysizes";
@@ -20,6 +21,8 @@
 @import "components/utilities";
 
 @import "hooks/display_top";
+@import "hooks/display_content_top";
+
 
 @import "partials/bs_alpha";
 

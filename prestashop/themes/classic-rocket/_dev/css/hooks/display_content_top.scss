@@ -1,0 +1,30 @@
+.block-category{
+  @extend .px-4;
+}
+
+.block-category .cat-desc {
+  @extend .row;
+
+  .p1 {
+    @extend .col-lg-9;
+  }
+
+  .p1:last-child {
+    @extend .col-lg-3;
+    @extend .float-lg-right;
+    text-align: center;
+
+    @media (min-width: map_get($grid-breakpoints, "lg")) {
+      margin-top: -5em;
+
+    }
+
+
+  }
+
+  &::after {
+    @extend .clearfix;
+  }
+}
+
+

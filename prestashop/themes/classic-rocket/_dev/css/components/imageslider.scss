@@ -1,8 +1,7 @@
-$bg-offset: 21.5vh;
 
 .carousel {
   position: relative;
-  margin-bottom: 8%;
+  margin-bottom: 5%;
 
   .slick-list, .slick-list {
     position: static;
@@ -55,7 +54,7 @@ $bg-offset: 21.5vh;
     background: center bottom /100% no-repeat url('../img/itib-bg.svg'); //, -16% -15%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
     //background:50% 0/cover no-repeat;
     width: 110%;
-    height: 100%;
+    height: 50%;
     position: absolute;
     left: -1em;
     display: none;
@@ -72,10 +71,12 @@ $bg-offset: 21.5vh;
       transform: translateY(5%);
     }
   }
+
+
 }
 
 //animate
-$sep: 20%;
+$sep: 25%;
 $m: 100%;
 
 //timings
@@ -142,7 +143,7 @@ $Y: 10em;
 @each $el, $i in $toAnim {
 
   .slick-slide #{unquote($el)} {
-    transition: opacity 2s ;
+    transition: opacity 2s;
     opacity: 0;
     @include tsY();
   }
@@ -182,6 +183,7 @@ $Y: 10em;
   }
 }
 
+
 //displays settings
 .slick-slide:not(.slick-current) .img-carousel.lazyload {
   display: none !important;
@@ -192,5 +194,8 @@ $Y: 10em;
   top: 0;
 }
 
-
+//buttons design
+ .carousel.slick__arrow-large .slick-arrow > i {
+  text-shadow: unset;
+}
 

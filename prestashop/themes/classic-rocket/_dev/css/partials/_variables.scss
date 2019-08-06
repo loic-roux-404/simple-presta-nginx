@@ -7,8 +7,9 @@ $black: #000;
 $gray-200: #e9ecef;
 $gray-300: #f1f1f1;
 $gray-400: #ced4da;
-$gray-600: #c2cdce;
-$gray-700: #808080;
+$gray-500: #b6c1c2;
+$gray-600: #6c7778;
+$gray-700: #737373;
 
 // Options
 $enable-rounded: false;
@@ -32,9 +33,9 @@ $bezier3: cubic-bezier(.51, .39, 0, .88);
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+$font-family-sans-serif: "Mukta",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$headings-font-family: "Noto Sans", $font-family-sans-serif;
+$headings-font-family: "Mukta", $font-family-sans-serif;
 
 $font-size-base: 1rem; // Assumes the browser default, typically `16px`
 
@@ -45,13 +46,13 @@ $h4-font-size: $font-size-base * 1.125;
 $h5-font-size: $font-size-base;
 $h6-font-size: $font-size-base * 0.9375;
 
-$display1-size: 3.125rem;
-$display1-weight: 600;
-$display2-size: 2.188rem;
-$display2-weight: 400;
-$display3-size: 1.563rem;
+$display1-size: 3.563rem;
+$display1-weight: 800;
+$display2-size: 3.25rem;
+$display2-weight: 800;
+$display3-size: 2.563rem;
 $display3-weight: 400;
-$display4-size: 1.25rem;
+$display4-size: 1.75rem;
 $display4-weight: 400;
 
 $small-font-size: $font-size-base * 0.875;
@@ -85,5 +86,11 @@ $table-bg: $white;
 
 //borders
 $border-width: 1px;
-$border-color: $gray-600;
+$border-color: $gray-400;
 $border-size-lg: 4px;
+
+
+//text-colors
+
+$text-muted:$gray-600;
+$text-secondary:$gray-700;

@@ -50,7 +50,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-5 col-8">
-                                    <p class="display-1 text-uppercase">{$slide.title}</p>
+                                    <p class="display-2 text-uppercase">{$slide.title}</p>
                                     <div class="caption-description">{$slide.description nofilter}</div>
                                 </div>
                             </div>

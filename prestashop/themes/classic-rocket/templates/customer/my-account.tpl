@@ -30,17 +30,21 @@
 {block name='pageFooterClass'}{/block}
 
 {block name='page_title'}
-    {l s='Your account' d='Shop.Theme.Customeraccount'}
+    <div class="m-auto header-bar">
+        <h1 class="display-1">
+            {l s='Your account' d='Shop.Theme.Customeraccount'}
+        </h1>
+    </div>
 {/block}
 
 {block name='page_content'}
-    <div class="row account-links">
+    <div class="row account-links pb-4 px-5">
 
         <a class="col-lg-4 col-md-6 col-sm-6 col-12" id="identity-link"
            href="{$urls.pages.identity}">
         <span class="link-item">
           <i class="material-icons">&#xE853;</i>
-          {l s='Information' d='Shop.Theme.Customeraccount'}
+          <p>{l s='Information' d='Shop.Theme.Customeraccount'}</p>
         </span>
         </a>
 
@@ -49,7 +53,7 @@
                href="{$urls.pages.addresses}">
           <span class="link-item">
             <i class="material-icons">&#xE56A;</i>
-            {l s='Addresses' d='Shop.Theme.Customeraccount'}
+            <p>{l s='Addresses' d='Shop.Theme.Customeraccount'}</p>
           </span>
             </a>
         {else}
@@ -57,7 +61,7 @@
                href="{$urls.pages.address}">
           <span class="link-item">
             <i class="material-icons">&#xE567;</i>
-            {l s='Add first address' d='Shop.Theme.Customeraccount'}
+              <p>{l s='Add first address' d='Shop.Theme.Customeraccount'}</p>
           </span>
             </a>
         {/if}
@@ -67,7 +71,7 @@
                href="{$urls.pages.history}">
           <span class="link-item">
             <i class="material-icons">&#xE916;</i>
-            {l s='Order history and details' d='Shop.Theme.Customeraccount'}
+              <p>{l s='Order history and details' d='Shop.Theme.Customeraccount'}</p>
           </span>
             </a>
         {/if}
@@ -77,7 +81,7 @@
                href="{$urls.pages.order_slip}">
           <span class="link-item">
             <i class="material-icons">&#xE8B0;</i>
-            {l s='Credit slips' d='Shop.Theme.Customeraccount'}
+            <p>{l s='Credit slips' d='Shop.Theme.Customeraccount'}</p>
           </span>
             </a>
         {/if}
@@ -87,7 +91,7 @@
                href="{$urls.pages.discount}">
           <span class="link-item">
             <i class="material-icons">&#xE54E;</i>
-            {l s='Vouchers' d='Shop.Theme.Customeraccount'}
+            <p>{l s='Vouchers' d='Shop.Theme.Customeraccount'}</p>
           </span>
             </a>
         {/if}
@@ -97,15 +101,16 @@
                href="{$urls.pages.order_follow}">
           <span class="link-item">
             <i class="material-icons">&#xE860;</i>
-            {l s='Merchandise returns' d='Shop.Theme.Customeraccount'}
+            <p>{l s='Merchandise returns' d='Shop.Theme.Customeraccount'}</p>
           </span>
             </a>
         {/if}
-        <a class="col-lg-4 col-md-6 col-sm-6 col-12" id="logout-link"
+        <a class="col-lg-4 col-md-6 col-sm-6 col-12 account-logout"
+           id="logout-link"
            href="{$logout_url}">
             <span class="link-item">
               <i class="material-icons">exit_to_app</i>
-              {l s='Sign out' d='Shop.Theme.Actions'}
+              <p>{l s='Sign out' d='Shop.Theme.Actions'}</p>
             </span>
         </a>
 
