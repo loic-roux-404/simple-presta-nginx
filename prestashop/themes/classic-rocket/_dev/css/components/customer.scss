@@ -44,7 +44,7 @@ $cs: 100px;
 
       .link-item::after {
         content: "";
-        width:70%;
+        width:85%;
         height:100%;
         opacity: .7;
         border-radius: unset;
@@ -108,7 +108,6 @@ $cs: 100px;
 }
 
 .logout {
-  color: $gray-700;
   transition: color .4s $bezier;
 
   &:hover {

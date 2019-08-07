@@ -23,32 +23,37 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='product_miniature_item'}
-    <article class="product-miniature js-product-miniature mb-3" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}">
+    <article class="product-miniature js-product-miniature mb-3"
+             data-id-product="{$product.id_product}"
+             data-id-product-attribute="{$product.id_product_attribute}">
         <div class="card card-product">
-
-            <div class="card-img-top position-relative">
+            {*            {$product|@var_dump}*}
+            {*            {$product|print_r}*}
+            <div class="card-img-top">
                 {block name='product_thumbnail'}
-                    <a href="{$product.url}" class="thumbnail product-thumbnail rc ratio1_1 d-block">
+                    <a href="{$product.url}"
+                       class="thumbnail product-thumbnail rc position-static d-block">
                         {if $product.cover}
                             <img
-                                    data-src = "{$product.cover.bySize.home_default.url}"
-                                    alt = "{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
-                                    data-full-size-image-url = "{$product.cover.large.url}"
+                                    data-src="{$product.cover.bySize.home_default.url}"
+                                    alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
+                                    title="{$product.name|truncate:30:'...'}"
+                                    data-full-size-image-url="{$product.cover.large.url}"
                                     class="lazyload"
                             >
                         {elseif isset($urls.no_picture_image)}
-                                <img src = "{$urls.no_picture_image.bySize.home_default.url}">
+                            <img src="{$urls.no_picture_image.bySize.home_default.url}">
                         {else}
-                                <img src = "data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
                         {/if}
                     </a>
                 {/block}
                 <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} d-none d-md-block">
-                    {block name='quick_view'}
-                        <span class="quick-view" data-link-action="quickview">
-                      <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}
-                  </span>
-                    {/block}
+                    {*                    {block name='quick_view'}*}
+                    {*                        <span class="quick-view" data-link-action="quickview">*}
+                    {*                      <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}*}
+                    {*                  </span>*}
+                    {*                    {/block}*}
 
                     {block name='product_variants'}
                         {if $product.main_variants}
@@ -59,32 +64,46 @@
             </div>
             {* end card-img-top*}
 
+
             <div class="card-body">
                 <div class="product-description">
                     {block name='product_name'}
                         {if in_array($page.page_name, ['best-sales','category','manufacturer','new-products','prices-drop','product-list','search','supplier'])}
-                        <h2 class="h3 product-title"><a href="{$product.url}">{$product.name|truncate:30:'...'}</a></h2>
+                            <h2 class="h3 product-title"><a
+                                        href="{$product.url}">{$product.name|truncate:30:'...'}</a>
+                            </h2>
                         {else}
-                            <p class="h3 product-title"><a href="{$product.url}">{$product.name|truncate:30:'...'}</a></p>
+                            <p class="h3 product-title"><a
+                                        href="{$product.url}">{$product.name|truncate:30:'...'}</a>
+                            </p>
                         {/if}
                     {/block}
 
                     {block name='product_price_and_shipping'}
                         {if $product.show_price}
                             <div class="product-price-and-shipping text-center">
+
                                 {if $product.has_discount}
                                     {hook h='displayProductPriceBlock' product=$product type="old_price"}
-
                                     <span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>
                                     <span class="regular-price">{$product.regular_price}</span>
-
                                 {/if}
 
                                 {hook h='displayProductPriceBlock' product=$product type="before_price"}
 
                                 <span class="sr-only">{l s='Price' d='Shop.Theme.Catalog'}</span>
-                                <span class="price">{$product.price}</span>
 
+                                {if $customer.is_logged}
+                                    <span class="price">{$product.price_tax_exc}</span>
+                                    <span class="price">{$product.price}</span>
+
+                                {else}
+                                    <a href="{$my_account_url}"
+                                            title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}">
+                                        <span class="product-log">{l s='Sign in' d='Shop.Theme.Actions'}</span>
+
+                                    </a>
+                                {/if}
 
                                 {hook h='displayProductPriceBlock' product=$product type='unit_price'}
 
@@ -117,7 +136,6 @@
             {/block}
         </div>
         {* end card product*}
-
 
 
     </article>

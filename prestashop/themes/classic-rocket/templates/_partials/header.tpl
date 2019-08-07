@@ -61,7 +61,7 @@
 
 {block name='header_top'}
     <div class="header-top border-bottom">
-        <div class="container ">
+        <div class="container">
             <div class="border-left border-right px-3">
                 <div class="row align-items-center">
                     <div class="col-md-1 d-none d-md-block text-center" id="_desktop_logo">

@@ -65,16 +65,15 @@ body:not(.page-index) .l-header {
 }
 
 
-
 //CATEGORIES
 #category #left-column {
   display: none;
-  width:0;
-}
-#category #content-wrapper{
-  @extend .col-md-12;
+  width: 0;
 }
 
+#category #content-wrapper {
+  @extend .col-md-12;
+}
 
 
 .left-column > div,
@@ -533,3 +532,66 @@ a {
 }
 
 
+//// link design && button
+.btn-primary:disabled, .btn-primary:disabled i {
+  color: $gray-300;
+}
+
+.btn-primary span, .btn-primary i, .btn-primary {
+  color: $white;
+}
+
+
+.li-d, .cat-desc a {
+  font-family: $font-family-base;
+  clear: both;
+  position: relative;
+  overflow: hidden;
+  padding-right:2rem;
+
+  $initial-pd: 15px;
+  $dis:1.5em;
+
+  &::before,
+  &::after {
+    content: '\e5c8';
+    position: absolute;
+    right: 0;
+    margin: auto 0;
+    transition: .2s opacity $bezier2, .35s transform $bezier;
+    margin-left:$initial-pd;
+  }
+
+
+  &::before {
+    opacity: 0;
+    @extend .material-icons;
+    transform: translateX(-$dis) scale(0.5);
+    padding-top: 2px;
+  }
+
+
+  &::after {
+    content: '\e5c8';
+    @extend .material-icons;
+    transform: translateX(0) scale(1);
+    padding-top: 2px;
+  }
+
+
+  &:hover {
+    &::before {
+      content: '\e5c8';
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+
+    &::after {
+      content: '\e5c8';
+      transform: translateX($dis) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+
+}

@@ -5,18 +5,17 @@
 .block-category .cat-desc {
   @extend .row;
 
-  .p1 {
+  .p1{
     @extend .col-lg-9;
   }
 
-  .p1:last-child {
+  .p1:last-child, p:last-child {
     @extend .col-lg-3;
     @extend .float-lg-right;
     text-align: center;
 
     @media (min-width: map_get($grid-breakpoints, "lg")) {
       margin-top: -5em;
-
     }
 
 

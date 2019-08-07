@@ -1,5 +1,5 @@
 {
-  "name": "prestarocket-dev-tools",
+  "name": "presta-dev-tools",
   "version": "1.0.0",
   "description": "Tools to help while developing the Classic theme",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "debug": "webpack --mode development --devtool source-map --watch",
     "fulldebug": "webpack --mode development --debug --devtool source-map --output-pathinfo --display-chunks --display-error-details --watch --progress --colors"
   },
-  "author": "Prestarocket",
+  "author": "Loic Roux",
   "license": "AFL-3.0",
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.5.5",

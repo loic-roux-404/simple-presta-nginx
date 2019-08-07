@@ -13,6 +13,7 @@ $enable-fluid-layout: false;
 $header-bg: $white;
 $footer-bg: $white;
 $wrapper-bg: #f1f1f1;
+$active-item:$primary;
 //for svg background
 $bg-offset: 20vh;
 
@@ -58,8 +59,9 @@ $social-share-size: 2.5 * $font-size-base;
 $social-share-bg-color: $gray-300;
 
 //main menu
+
 $menu-topitem-font-size: $font-size-base;
-$menu-topitem-color: $gray-800;
+$menu-topitem-color: $gray-700;
 $menu-item-padding: $spacer/2;
 $menu-item-border-color: $border-color;
 $menu-sub-mobile-bg-color: $wrapper-bg;
@@ -69,7 +71,8 @@ $h1-text-transform: uppercase;
 
 //footer
 $footer-margin-top: $spacer-bloc;
-$footer-padding-top: $spacer;
+$footer-padding-top: $spacer-bloc;
+
 
 //elem to anime (slider)
 

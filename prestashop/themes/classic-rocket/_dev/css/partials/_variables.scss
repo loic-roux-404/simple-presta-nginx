@@ -11,9 +11,16 @@ $gray-500: #b6c1c2;
 $gray-600: #6c7778;
 $gray-700: #737373;
 
+
+$body-color: $gray-700;
+
 // Options
 $enable-rounded: false;
 $enable-shadows: false;
+
+//spacing
+$spacer-bloc: 2rem;
+
 
 //
 // Links
@@ -33,16 +40,18 @@ $bezier3: cubic-bezier(.51, .39, 0, .88);
 // Fonts
 //
 // Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif: "Mukta",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
+$font-family-sans-serif: "Mukta", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $headings-font-family: "Mukta", $font-family-sans-serif;
 
-$font-size-base: 1rem; // Assumes the browser default, typically `16px`
+$font-size-base: 1.15rem; // Assumes the browser default, typically `16px`
+$font-size-lg:                $font-size-base * 1.75;
+$font-size-sm:                $font-size-base * 1.25 ;
 
-$h1-font-size: $font-size-base * 1.375;
-$h2-font-size: $font-size-base * 1.25;
-$h3-font-size: $font-size-base * 1.125;
-$h4-font-size: $font-size-base * 1.125;
+$h1-font-size: $font-size-base * 1.875;
+$h2-font-size: $font-size-base * 1.55;
+$h3-font-size: $font-size-base * 1.25;
+$h4-font-size: $font-size-base * 1.150;
 $h5-font-size: $font-size-base;
 $h6-font-size: $font-size-base * 0.9375;
 
@@ -57,6 +66,15 @@ $display4-weight: 400;
 
 $small-font-size: $font-size-base * 0.875;
 
+//WEIGHTS
+
+$font-weight-lighter:         200 ;
+$font-weight-light:           300 ;
+$font-weight-normal:          400 ;
+$font-weight-bold:            700 ;
+$font-weight-bolder:          800 ;
+
+
 //ENABLE REPONSIVE FONTS
 $enable-responsive-font-sizes: true;
 // Components
@@ -66,7 +84,6 @@ $enable-responsive-font-sizes: true;
 $box-shadow: 0px;
 
 // Navs
-
 $nav-tabs-border-width: 2px;
 $nav-tabs-border-color: $gray-300 !default;
 $nav-tabs-link-hover-border-color: transparent transparent $nav-tabs-border-color;
@@ -92,5 +109,18 @@ $border-size-lg: 4px;
 
 //text-colors
 
-$text-muted:$gray-600;
-$text-secondary:$gray-700;
+$text-muted: $gray-600;
+$text-secondary: $gray-700;
+
+//links
+$link-color: $gray-600;
+
+//breadcrumb
+$breadcrumb-margin-bottom: $spacer-bloc;
+$breadcrumb-bg:$white;
+//buttons
+$btn-font-weight: $font-weight-bolder;
+$btn-link-disabled-color: $gray-400;
+$btn-transition: color .2s $bezier3, background-color .2s $bezier3, border-color .2s $bezier3, box-shadow .2s $bezier3;
+
+

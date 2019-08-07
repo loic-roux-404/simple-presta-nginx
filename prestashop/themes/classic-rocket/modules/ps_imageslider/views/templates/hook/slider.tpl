@@ -48,8 +48,8 @@
                 {if $slide.title || $slide.description}
                     <div class="slider-caption">
                         <div class="container">
-                            <div class="row">
-                                <div class="col-lg-5 col-8">
+                            <div class="row justify-content-md-start justify-content-center">
+                                <div class="col-lg-5 col-8 text-md-left text-center">
                                     <p class="display-2 text-uppercase">{$slide.title}</p>
                                     <div class="caption-description">{$slide.description nofilter}</div>
                                 </div>

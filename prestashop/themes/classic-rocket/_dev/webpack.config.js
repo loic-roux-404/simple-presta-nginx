@@ -98,6 +98,11 @@ module.exports = (env, argv) => {
             $: '$',
             jquery: 'jQuery'
         },
+        resolve: {
+            alias: {
+                '@m': path.resolve(__dirname, 'dev/scss/_modules/'),
+            }
+        },
         optimization: {
             minimizer: [
                 new TerserPlugin({

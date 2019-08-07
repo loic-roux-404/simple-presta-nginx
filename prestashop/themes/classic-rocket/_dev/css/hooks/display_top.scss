@@ -1,10 +1,25 @@
 //modules on menu
-#header{
-  z-index:99;
+.l-header {
+  z-index: 99;
+  color: $gray-700;
+
+  a, i {
+    color: $gray-700;
+  }
+
 }
-.user-info{
-  height:100%;
-  > a{
+
+.user-info {
+  height: 100%;
+
+  > a {
     padding: .5em 0;
+  }
+}
+
+.l-header .container {
+  @media (max-width: map_get($grid-breakpoints, "lg")) {
+    max-width: 100%;
+    margin:0;
   }
 }

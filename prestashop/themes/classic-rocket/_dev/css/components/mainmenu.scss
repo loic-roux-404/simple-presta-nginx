@@ -12,6 +12,19 @@
   padding: $spacer/2;
 }
 
+
+
+
+.l-header .menu__item--current a, .breadcrumb-item:last-child a{
+  color:$primary;
+}
+
+.l-header .menu .menu__item:hover ~ .menu__item--current a span{
+  color:$gray-700 !important;
+}
+
+
+
 @include media-breakpoint-up(md) {
   .menu__item-header {
     height: 100%;

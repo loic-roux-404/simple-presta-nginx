@@ -18,8 +18,8 @@
 
   .slider-caption {
     position: absolute;
-    top: 40%;
-    transform: translateY(-40%);
+    top: 30%;
+    transform: translateY(-30%);
     width: 100vw;
     margin-bottom: 0;
     color: #fff;
@@ -30,7 +30,7 @@
       z-index: 4;
     }
 
-    .display-1 {
+    .display-2 {
       margin-bottom: .2em;
     }
 
@@ -39,7 +39,7 @@
       //margin: auto 0;
       font-size: inherit;
 
-      .display-1 {
+      .display-2 {
         margin-bottom: inherit;
       }
     }
@@ -61,7 +61,7 @@
 
     /////- width
     @media (min-width: map_get($grid-breakpoints, "sm")) {
-      bottom: -9%;
+      bottom: -12%;
       transform: translateY(9%);
       display: block;
     }
@@ -82,7 +82,7 @@ $m: 100%;
 //timings
 $d: .68s;
 $t: .5s;
-.slick-slide {
+#index .slick-slide {
 
   .rc::before, .rc::after {
     content: "";
@@ -195,7 +195,10 @@ $Y: 10em;
 }
 
 //buttons design
- .carousel.slick__arrow-large .slick-arrow > i {
+
+
+.carousel.slick__arrow-large .slick-arrow > i {
+  font-size: 2rem;
   text-shadow: unset;
 }
 

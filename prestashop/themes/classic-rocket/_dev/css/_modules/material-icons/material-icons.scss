@@ -1,0 +1,32 @@
+@import 'variables';
+@import 'mixins';
+
+@font-face {
+  font-family: $material-icons-font-family;
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$material-icons-font-file}.eot'); /* For IE6-8 */
+  src: local($material-icons-font-family), local($material-icons-font-name),
+    url('#{$material-icons-font-file}.woff2') format('woff2'),
+    url('#{$material-icons-font-file}.woff') format('woff'),
+    url('#{$material-icons-font-file}.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: $material-outlined-icons-font-name;
+  font-style: normal;
+  font-weight: 400;
+  src: url('#{$material-outlined-icons-font-file}.eot'); /* For IE6-8 */
+  src: local($material-outlined-icons-font-family), local($material-outlined-icons-font-name),
+  url('#{$material-outlined-icons-font-file}.woff2') format('woff2'),
+  url('#{$material-outlined-icons-font-file}.woff') format('woff'),
+  url('#{$material-outlined-icons-font-file}.ttf') format('truetype');
+}
+
+
+.material-icons {
+  @include material-icons();
+}
+.material-icons-outline{
+  @include material-icons($material-outlined-icons-font-name);
+}

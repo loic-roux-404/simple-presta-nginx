@@ -22,9 +22,9 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-{if isset($breadcrumb.links[1])}
+{if isset($breadcrumb.links[2])}
 <nav data-depth="{$breadcrumb.count}" class="d-none d-md-block">
-  <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb">
+  <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="breadcrumb border">
       {block name='breadcrumb'}
       {foreach from=$breadcrumb.links item=path name=breadcrumb}
       {block name='breadcrumb_item'}
