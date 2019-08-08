@@ -84,27 +84,17 @@ $d: .68s;
 $t: .5s;
 #index .slick-slide {
 
-  .rc::before, .rc::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    background-image: linear-gradient(to left, $primary, darken($primary, 0.01));
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    height: 120%;
-    width: $sep;
-    z-index: 2;
-    transition: transform $d $bezier2, box-shadow .79s ease-in;
-    box-shadow: 0 0 0 0 $primary;
+  .effect-ab, .rc::before, .rc::after {
+    @include effect-ab($sep, $primary, true)
   }
 
   //backgrounds
-  .rc::before {
+  .rc::before{
     left: 0;
     transform: translateY($m);
   }
 
-  .rc::after {
+  .rc::after{
     left: $sep;
     transform: translateY(-$m);
   }
@@ -132,12 +122,9 @@ $t: .5s;
 }
 
 $k: 0.35;
-
 $Y: 10em;
 
-@mixin tsY() {
-  transform: translateY($Y);
-}
+
 
 
 @each $el, $i in $toAnim {
@@ -145,7 +132,7 @@ $Y: 10em;
   .slick-slide #{unquote($el)} {
     transition: opacity 2s;
     opacity: 0;
-    @include tsY();
+    @include tsY($Y);
   }
 
   .slick-current #{unquote($el)} {
@@ -179,7 +166,7 @@ $Y: 10em;
 @keyframes exit-txt {
   to {
     opacity: 0;
-    @include tsY();
+    @include tsY($Y);
   }
 }
 

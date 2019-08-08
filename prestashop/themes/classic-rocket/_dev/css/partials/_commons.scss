@@ -377,11 +377,11 @@ ul {
 
 .price {
   font-weight: 700;
-  color: $black;
+  color: $price-color;
 }
 
 //forms
-custom-file-label.selected:after {
+.custom-file-label.selected:after {
   content: "" !important;
 }
 
@@ -592,6 +592,11 @@ a {
       opacity: 0;
     }
   }
+}
 
 
+
+//pagination product list
+.pag small{
+  font-weight: $font-weight-bold;
 }

@@ -22,17 +22,19 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+
 {block name='product_miniature_item'}
     <article class="product-miniature js-product-miniature mb-3"
              data-id-product="{$product.id_product}"
              data-id-product-attribute="{$product.id_product_attribute}">
         <div class="card card-product">
-            {*            {$product|@var_dump}*}
-            {*            {$product|print_r}*}
+
             <div class="card-img-top">
+                <a href="{$product.url}" class="li-d" title="{l s='See product' d='Shop.Theme.Catalog'}">{l s='See product' d='Shop.Theme.Catalog'}</a>
+
                 {block name='product_thumbnail'}
                     <a href="{$product.url}"
-                       class="thumbnail product-thumbnail rc position-static d-block">
+                       class="thumbnail product-thumbnail rc d-block">
                         {if $product.cover}
                             <img
                                     data-src="{$product.cover.bySize.home_default.url}"
@@ -48,28 +50,27 @@
                         {/if}
                     </a>
                 {/block}
-                <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} d-none d-md-block">
-                    {*                    {block name='quick_view'}*}
-                    {*                        <span class="quick-view" data-link-action="quickview">*}
-                    {*                      <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}*}
-                    {*                  </span>*}
-                    {*                    {/block}*}
+{*                <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} d-none d-md-block">*}
+{*                                        {block name='quick_view'}*}
+{*                                            <span class="quick-view" data-link-action="quickview">*}
+{*                                          <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}*}
+{*                                      </span>*}
+{*                                        {/block}*}
 
-                    {block name='product_variants'}
-                        {if $product.main_variants}
-                            {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}
-                        {/if}
-                    {/block}
-                </div>
+{*                    {block name='product_variants'}*}
+{*                        {if $product.main_variants}*}
+{*                            {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}*}
+{*                        {/if}*}
+{*                    {/block}*}
+{*                </div>*}
             </div>
             {* end card-img-top*}
 
-
-            <div class="card-body">
+            <div class="card-body p-0">
                 <div class="product-description">
                     {block name='product_name'}
                         {if in_array($page.page_name, ['best-sales','category','manufacturer','new-products','prices-drop','product-list','search','supplier'])}
-                            <h2 class="h3 product-title"><a
+                            <h2 class="h3 product-title m-0 border-top"><a
                                         href="{$product.url}">{$product.name|truncate:30:'...'}</a>
                             </h2>
                         {else}
@@ -94,14 +95,15 @@
                                 <span class="sr-only">{l s='Price' d='Shop.Theme.Catalog'}</span>
 
                                 {if $customer.is_logged}
-                                    <span class="price">{$product.price_tax_exc}</span>
-                                    <span class="price">{$product.price}</span>
+                                    <div class="d-table w-100 h-100">
+                                        <span class="price d-table-cell border border-left-0 border-bottom-0">{$product.price_tax_exc|replace:".":","}&nbsp;{$currency.sign}</span>
+                                        <span class="price d-table-cell border border-left-0 border-right-0 border-bottom-0">{$product.price}</span>
+                                    </div>
 
                                 {else}
                                     <a href="{$my_account_url}"
-                                            title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}">
+                                            title="{l s='Log in to see prices' d='Shop.Theme.Customeraccount'}">
                                         <span class="product-log">{l s='Sign in' d='Shop.Theme.Actions'}</span>
-
                                     </a>
                                 {/if}
 

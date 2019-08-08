@@ -22,8 +22,8 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
 * International Registered Trademark & Property of PrestaShop SA
  *}
-<div class="row">
-  <div class="small col-md-4">
+<div class="pag text-center bg-white border p-3 mt-3">
+  <div class="small">
     {block name='pagination_summary'}
       {l s='Showing %from%-%to% of %total% item(s)' d='Shop.Theme.Catalog' sprintf=['%from%' => $pagination.items_shown_from ,'%to%' => $pagination.items_shown_to, '%total%' => $pagination.total_items]}
     {/block}

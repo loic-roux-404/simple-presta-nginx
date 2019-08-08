@@ -43,10 +43,34 @@
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
 }
 
-
+//positionning
 @mixin abs-equal {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+@mixin tsY($Y) {
+  transform: translateY($Y);
+}
+
+//mixin two blocs effect
+@mixin effect-ab($w,$color:$primary,$box-shadow:false) {
+  content: "";
+  position: absolute;
+  top: 0;
+  background-image: linear-gradient(to left, $color, darken($color, 0.01));
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 120%;
+  width: $w;
+  z-index: 2;
+  @if ($box-shadow) {
+    transition: transform $d $bezier2, box-shadow .79s ease-in;
+    box-shadow: 0 0 0 0 $primary;
+  }
+  @else {
+    transition: transform $d $bezier2 , $d*2 opacity $bezier3;
+  }
 }
