@@ -56,7 +56,7 @@
           {if $image.id_image != $product.cover.id_image}
 
       <div class="product-img">
-          <div class="rc">
+          <div class="s-img-wrapper">
               <img
                       class="img-fluid lazyload"
                       {if !$smarty.foreach.images.first && !$product.cover}data-sizes="auto"{/if}
@@ -78,7 +78,7 @@
   </div>
       {if $product.cover}
       <button type="button" class="btn btn-link btn-zoom hidden-sm-down product-layer-zoom" data-toggle="modal" data-target="#product-modal">
-          <i class="material-icons zoom-in">&#xE8FF;</i>
+          <i class="material-icons zoom-in">fullscreen</i>
       </button>
       {/if}
   </div>

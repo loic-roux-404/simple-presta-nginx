@@ -22,42 +22,47 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-{if $homeslider.slides}
+<div class="homeslider d-flex flex-column position-relative">
 
-    {assign var=paddingbottom value=($homeslider.slides[0]['sizes'][1]/$homeslider.slides[0]['sizes'][0]*100)}
-    <div id="carousel" class="carousel slick__arrow-large"
-         {if $homeslider.slides|count > 1}data-slick={strip}
-         '{literal}{
+    {if $homeslider.slides}
+
+        {assign var=paddingbottom value=($homeslider.slides[0]['sizes'][1]/$homeslider.slides[0]['sizes'][0]*100)}
+        <div id="carousel" class="carousel slick__arrow-large"
+             {if $homeslider.slides|count > 1}data-slick={strip}
+             '{literal}{
 "autoplay": true,
 "slidesToShow": 1,
 "autoplaySpeed":{/literal}{$homeslider.speed}{literal}
 }{/literal}'{/strip}{/if}>
-        {foreach from=$homeslider.slides item=slide name='homeslider'}
-            <a href="{$slide.url}" class="slide-link">
-                <div class="rc" style="padding-top:{$paddingbottom}%">
-                    <img data-src="{$slide.image_url}"
-                         alt="{$slide.legend|escape}"
-                         class="w-100 lazyload img-carousel">
-                    <noscript>
-                        <img src="{$slide.image_url}"
-                             alt="{$slide.legend|escape}">
-                    </noscript>
+            {foreach from=$homeslider.slides item=slide name='homeslider'}
+                <a href="{$slide.url}" class="slide-link">
+                    <div class="rc" style="padding-top:{$paddingbottom}%">
+                        <img data-src="{$slide.image_url}"
+                             alt="{$slide.legend|escape}"
+                             class="w-100 lazyload img-carousel">
+                        <noscript>
+                            <img src="{$slide.image_url}"
+                                 alt="{$slide.legend|escape}">
+                        </noscript>
 
-                </div>
+                    </div>
 
-                {if $slide.title || $slide.description}
-                    <div class="slider-caption">
-                        <div class="container">
-                            <div class="row justify-content-md-start justify-content-center">
-                                <div class="col-lg-5 col-8 text-md-left text-center">
-                                    <p class="display-2 text-uppercase">{$slide.title}</p>
-                                    <div class="caption-description">{$slide.description nofilter}</div>
+                    {if $slide.title || $slide.description}
+                        <div class="slider-caption">
+                            <div class="container">
+                                <div class="row justify-content-md-start justify-content-center">
+                                    <div class="col-lg-5 col-8 text-md-left text-center">
+                                        <p class="display-2 text-uppercase">{$slide.title}</p>
+                                        <div class="caption-description">{$slide.description nofilter}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {/if}
-            </a>
-        {/foreach}
-    </div>
-{/if}
+                    {/if}
+                </a>
+            {/foreach}
+        </div>
+    {/if}
+
+    <h1 class="shop-name">{$shop.name}</h1>
+</div>

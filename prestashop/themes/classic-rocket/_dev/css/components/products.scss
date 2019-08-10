@@ -8,6 +8,12 @@
 
 }
 
+//sort products
+#products .custom-select {
+  border: none;
+  border-left: $border-width solid $border-color;
+}
+
 @include media-breakpoint-up(lg) {
   .product-miniature {
     @include make-col(6);
@@ -174,6 +180,7 @@
 
 .price {
   padding: $spacer 0;
+  width: 50%;
 }
 
 //log setting in product list
@@ -189,6 +196,11 @@
 
 .products-imagescover {
   @extend .shadow;
+
+  .slick-slide img {
+    height: auto;
+    top: 0;
+  }
 }
 
 .product-img:not(:first-child) .rc {
@@ -216,8 +228,8 @@
   &:not(.slick-initialized) > div:not(:first-child) {
     display: none;
   }
-
 }
+
 
 .product-thumb {
   margin: $product-thumb-margin;
@@ -226,6 +238,22 @@
   width: $product-thumb-width;
   height: $product-thumb-height;
   border: 2px solid transparent;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+
+  .rc {
+
+    img {
+      transform: scale(1.42);
+      transition: 1.5s $bezier3;
+    }
+  }
+
+  &:hover .s-img-wrapper img {
+    transform: scale(2);
+
+  }
 
   &.slick-current {
     border: 2px solid theme-color('primary');
@@ -233,22 +261,28 @@
 }
 
 .btn-zoom {
-
+  @extend .border;
   position: absolute;
-  right: $spacer;
-  bottom: $spacer;
+  right: 0;
+  bottom: 0;
   cursor: pointer;
-  display: none;
   padding: 0;
   line-height: 1;
+  transition: opacity .2s $bezier3, transform .5s $bezier;
+  transform: translateY(20%);
+  opacity: 0;
+  background: $white;
 
   & .material-icons {
+    color: $gray-500;
     font-size: 3*$font-size-base;
   }
 }
 
 .images-container:hover .btn-zoom {
-  display: block;
+  transform: translateY(0);
+  opacity: 1;
+
 }
 
 .label-color {
@@ -272,6 +306,11 @@
   font-weight: $regular-price-font-weight;
 }
 
+.product-without-taxes {
+  color: $primary;
+
+}
+
 .current-price-discount {
   color: $product-price-discount-color;
 }
@@ -292,8 +331,21 @@
   font-weight: 600;
 }
 
+//info suppl
+#product-availability, .product-minimal-quantity, .product-additional-info {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 2em auto;
+
+}
+
 //product tabs
 .product-tabs {
+  border-right: unset;
+  border-bottom: unset;
+  border-left: none;
+
   .nav-tabs {
     font-size: $font-size-base * .9;
   }
@@ -355,3 +407,12 @@
   padding-left: $spacer;
 }
 
+.products-selection {
+  margin: $spacer-bloc auto;
+}
+
+
+//product carac
+dt.name{
+  color:$primary;
+}

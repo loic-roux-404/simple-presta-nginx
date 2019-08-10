@@ -23,7 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div class="container">
-  <div class="row">
+  <div class="row text-center text-md-left">
     {block name='hook_footer_before'}
       {hook h='displayFooterBefore'}
     {/block}
@@ -31,12 +31,12 @@
 </div>
 <div class="footer-container">
   <div class="container">
-    <div class="row">
+    <div class="row text-center text-md-left">
       {block name='hook_footer'}
         {hook h='displayFooter'}
       {/block}
     </div>
-    <div class="row">
+    <div class="row text-center text-md-left">
       {block name='hook_footer_after'}
         {hook h='displayFooterAfter'}
       {/block}

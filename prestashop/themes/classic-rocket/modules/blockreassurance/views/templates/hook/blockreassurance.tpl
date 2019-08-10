@@ -23,7 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {if $elements}
-    <div class="card card--reassurance mb-3">
+    <div class="card card--reassurance border-0">
         <ul class="list-group list-group-flush">
             {foreach from=$elements item=element}
             <li class="list-group-item">

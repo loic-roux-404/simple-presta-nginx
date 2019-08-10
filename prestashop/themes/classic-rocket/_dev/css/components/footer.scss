@@ -1,18 +1,80 @@
 .l-footer {
-  color: $text-muted;
+  color: $white;
 
-  .title{
-    color:$black;
-    text-transform: uppercase;
+  .title {
+    color: $white;
     display: block;
-    @extend .h3;
   }
+
   .cms-page-link,
-  .account-list a{
-    color: $text-muted;
-    &:hover{
-      color: theme-color('primary');
+  .account-list a {
+    color: $white;
+
+    &:hover {
+      color: $gray-300;
 
     }
   }
+}
+
+
+.footer-container {
+  padding-top: $bg-spacer/2;
+  @extend .pb-4;
+
+  @include media-breakpoint-up(md) {
+    padding-top: $bg-spacer;
+  }
+  @include media-breakpoint-up(lg) {
+    padding-top: $bg-spacer*1.3;
+  }
+}
+
+
+.l-footer {
+  margin-top: $bg-spacer;
+  position: relative;
+  overflow: hidden;
+  background: $primary;
+
+  &::before {
+    content: '';
+    background: center bottom /100% no-repeat url('../img/itib-bg.svg'); //, -16% -15%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
+    //background:50% 0/cover no-repeat;
+    width: 110%;
+    height: 58%;
+    position: absolute;
+    left: -1em;
+    top: -6%;
+    transform: translateY(6%) rotate(180deg);
+
+    /////- width
+    @media (min-width: map_get($grid-breakpoints, "sm")) {
+      top: -12%;
+      transform: translateY(12%) rotate(180deg);
+    }
+
+    @media (min-width: 1500px) {
+      top: -25%;
+      transform: translateY(25%) rotate(180deg);
+      height: 70%;
+    }
+  }
+}
+
+
+// info
+
+.block-contact, .block-link {
+
+
+  .footer__title {
+    font-weight: $font-weight-bolder;
+  }
+
+  ul li:first-child, .footer__title--mobile {
+    display: none;
+  }
+
+
 }

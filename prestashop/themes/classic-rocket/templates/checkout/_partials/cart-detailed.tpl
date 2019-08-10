@@ -36,7 +36,7 @@
       {/foreach}
     </div>
     {else}
-      <span class="no-items">{l s='There are no more items in your cart' d='Shop.Theme.Checkout'}</span>
+      <span class="no-items d-block py-3 text-center">{l s='There are no more items in your cart' d='Shop.Theme.Checkout'}</span>
     {/if}
   </div>
 {/block}

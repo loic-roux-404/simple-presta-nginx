@@ -4,10 +4,12 @@ $bg-dark: #dededd;
 $tertiary: #f39d72;
 
 //BS touchspin
-$bs-touchspin-boxshadow: 2px 2px 4px 0 rgba(0, 0, 0, .2);
+$bs-touchspin-boxshadow: unset;
 
 //option
 $enable-fluid-layout: false;
+
+$bg-spacer:6em;
 
 // main layout
 $header-bg: $white;
@@ -31,12 +33,12 @@ $promo-code-bg: darken($body-bg, 10%);
 
 //offcanvas
 $zindex-offcanvas: $zindex-modal;
-$offcanvas-width: 300px;
+$offcanvas-width: 400px;
 
 //product slider
-$product-thumb-margin: 5px;
-$product-thumb-width: 100px;
-$product-thumb-height: 100px;
+$product-thumb-margin: 20px;
+$product-thumb-width: 80px;
+$product-thumb-height: 50px;
 $product-to-show: 3; //if you edit this, you have to add centerPadding ppy in data-slick with same value
 $product-thumb-wrap-width: $product-to-show * ($product-thumb-width + 2 * $product-thumb-margin) - 2 * $product-thumb-margin;
 $product-thumb-wrap-width-2: 2 * ($product-thumb-width + 2 * $product-thumb-margin) - 2 * $product-thumb-margin;

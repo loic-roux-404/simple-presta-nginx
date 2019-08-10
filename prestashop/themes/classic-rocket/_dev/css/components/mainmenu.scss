@@ -13,8 +13,6 @@
 }
 
 
-
-
 .l-header .menu__item--current a, .breadcrumb-item:last-child a{
   color:$primary;
 }
@@ -22,7 +20,6 @@
 .l-header .menu .menu__item:hover ~ .menu__item--current a span{
   color:$gray-700 !important;
 }
-
 
 
 @include media-breakpoint-up(md) {
@@ -69,6 +66,7 @@
   .menu-top{
     flex-direction: column;
     margin-bottom: $spacer;
+    margin-left: 1.85rem;
   }
   .menu-sub{
     width: 100%;
@@ -87,8 +85,7 @@
   }
   .menu__item{
     //padding: $spacer/2;
-    border-bottom: 1px solid $menu-item-border-color;
-    border-top: 1px solid $menu-item-border-color;
+    @include responsive-font-size(5rem);
   }
   .menu__item--top:not(:first-child){
     border-top:0;

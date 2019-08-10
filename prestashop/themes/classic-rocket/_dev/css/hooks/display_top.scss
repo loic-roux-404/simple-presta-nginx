@@ -1,3 +1,14 @@
+
+
+#menu-icon{
+  @extend .border-right;
+}
+#_mobile_user_info .account{
+  @extend .border-right;
+  @extend .border-left;
+  height:100%;
+}
+
 //modules on menu
 .l-header {
   z-index: 99;

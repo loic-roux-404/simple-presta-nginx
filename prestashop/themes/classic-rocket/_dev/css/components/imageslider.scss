@@ -1,7 +1,11 @@
 
 .carousel {
   position: relative;
-  margin-bottom: 5%;
+  margin-bottom: $spacer-bloc;
+
+  @include media-breakpoint-up(sm) {
+    margin-bottom: $bg-spacer;
+  }
 
   .slick-list, .slick-list {
     position: static;
@@ -71,8 +75,6 @@
       transform: translateY(5%);
     }
   }
-
-
 }
 
 //animate
@@ -89,12 +91,12 @@ $t: .5s;
   }
 
   //backgrounds
-  .rc::before{
+  .rc::before {
     left: 0;
     transform: translateY($m);
   }
 
-  .rc::after{
+  .rc::after {
     left: $sep;
     transform: translateY(-$m);
   }
@@ -123,8 +125,6 @@ $t: .5s;
 
 $k: 0.35;
 $Y: 10em;
-
-
 
 
 @each $el, $i in $toAnim {
@@ -182,7 +182,20 @@ $Y: 10em;
 }
 
 //buttons design
+.modal .slick-slider {
+  .slick-arrow > i {
+    background: transparent;
+    border-width: $border-size-lg;
+    border-color: $body-color;
+    border-style: solid;
+    border-radius: 0;
+    transition: .35s $bezier2;
+  }
 
+  .slick-arrow:hover i {
+    border-color: $gray-800;
+  }
+}
 
 .carousel.slick__arrow-large .slick-arrow > i {
   font-size: 2rem;

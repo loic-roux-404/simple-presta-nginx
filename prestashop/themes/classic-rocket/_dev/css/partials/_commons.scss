@@ -1,6 +1,11 @@
 body {
-  background-color: $wrapper-bg;
+  background: $primary;
   overflow-x: hidden;
+}
+
+main {
+  background-color: $wrapper-bg;
+
 }
 
 a {
@@ -66,7 +71,7 @@ body:not(.page-index) .l-header {
 
 
 //CATEGORIES
-#category #left-column {
+#left-column {
   display: none;
   width: 0;
 }
@@ -102,21 +107,30 @@ body:not(.page-index) .l-header {
   }
 }
 
+//display font fix
 .l-wrapper .display-1 {
   color: $gray-700;
 }
 
+//cart grid
+.cart-grid .display-1, .block-category .display-1 {
+  @include media-breakpoint-down(xl) {
+    font-size: $display2-size;
+  }
+}
 
-.display-1 {
+.display-1, .page-header h1 {
   position: relative;
   display: inline-flex;
   @extend .py-1;
+  @extend .my-3;
   line-height: 2;
+  font-weight: $font-weight-bolder;
 
   &::before {
     content: "";
     margin: auto .42em auto 0;
-    height: 80px;
+    height: 70px;
     width: 0.22em;
     background: $gray-700;
   }
@@ -150,10 +164,9 @@ ul {
 
 .bootstrap-touchspin {
   box-shadow: $bs-touchspin-boxshadow;
-  border: $input-border-width solid $input-border-color;
 
   > input {
-    max-width: 60px;
+    max-width: 80%;
     border: none;
     box-shadow: none;
     text-align: center;
@@ -178,6 +191,10 @@ ul {
       margin-left: -$input-border-width;
     }
   }
+}
+
+.up {
+  padding-top: $spacer-bloc;
 }
 
 /* minimizing reflows and avoiding page jumps */
@@ -240,7 +257,7 @@ ul {
 /* CART */
 
 .mobile-cart .blockcart {
-  padding-right: 1.5em;
+  padding-right: 1em;
 }
 
 .promo-code {
@@ -391,19 +408,26 @@ ul {
 
 //nav tabs
 .nav-tabs {
+  border: unset;
+
   .nav-link {
     color: $gray-600;
     font-weight: 700;
+    margin: 0 1rem;
   }
 
   .nav-link.active,
   .nav-item.show .nav-link {
+    border: unset;
     border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: $gray-700;
   }
 }
 
 .tab-content {
   padding-top: $spacer;
+  @extend .pl-3;
 }
 
 //products-section-title
@@ -531,9 +555,44 @@ a {
   -moz-outline-style: none;
 }
 
+//shop name
+.shop-name {
+  position: absolute;
+  left: 0;
+  bottom: 10%;
+  transform: translateY(-10%);
+  text-shadow: $box-shadow-lg;
+  font-weight: $font-weight-bolder;
+  text-align: center;
+  width: 100vw;
+  font-size: 3.5rem;
+  color: $white;
+  display: none;
+
+
+  @include media-breakpoint-up(sm) {
+    font-size: 5.8rem;
+    display: block;
+    bottom: 4%;
+    transform: translateY(-4%);
+
+  }
+  @include media-breakpoint-up(md) {
+    @include responsive-font-size(11.5rem);
+    bottom: 2%;
+    transform: translateY(-2%);
+  }
+
+  @media (min-width: 1500px) {
+    bottom: 8%;
+    transform: translateY(-8%);
+  }
+
+}
+
 
 //// link design && button
-.btn-primary:disabled, .btn-primary:disabled i {
+.btn-primary:disabled,.btn-primary.disabled, .btn-primary:disabled i {
   color: $gray-300;
 }
 
@@ -541,25 +600,41 @@ a {
   color: $white;
 }
 
+.btn-outline-primary {
+  border-width: $border-size-lg;
+
+  &.li-d {
+    padding-right: 1.85rem;
+  }
+
+
+  &:hover {
+    &, i {
+      color: $white;
+    }
+  }
+}
+
+
 
 .li-d, .cat-desc a {
   font-family: $font-family-base;
   clear: both;
   position: relative;
   overflow: hidden;
-  padding-right:2rem;
+  padding-right: 2rem;
 
   $initial-pd: 15px;
-  $dis:1.5em;
+  $dis: 1.5em;
 
   &::before,
   &::after {
     content: '\e5c8';
     position: absolute;
-    right: 0;
+    right: 5px;
     margin: auto 0;
     transition: .2s opacity $bezier2, .35s transform $bezier;
-    margin-left:$initial-pd;
+    margin-left: $initial-pd;
   }
 
 
@@ -595,8 +670,12 @@ a {
 }
 
 
-
 //pagination product list
-.pag small{
+.pag small {
   font-weight: $font-weight-bold;
+}
+
+//notifications
+.alert {
+  background: transparent;
 }

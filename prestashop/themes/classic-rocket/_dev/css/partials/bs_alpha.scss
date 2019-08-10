@@ -19,3 +19,9 @@
     }
   }
 }
+
+.border-lg-right{
+  @include media-breakpoint-up(lg) {
+    border-right:$border-width solid $border-color;
+  }
+}

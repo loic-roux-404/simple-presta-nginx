@@ -71,11 +71,11 @@
                     {block name='product_name'}
                         {if in_array($page.page_name, ['best-sales','category','manufacturer','new-products','prices-drop','product-list','search','supplier'])}
                             <h2 class="h3 product-title m-0 border-top"><a
-                                        href="{$product.url}">{$product.name|truncate:30:'...'}</a>
+                                        href="{$product.url}">{$product.name|truncate:50:'...'}</a>
                             </h2>
                         {else}
                             <p class="h3 product-title"><a
-                                        href="{$product.url}">{$product.name|truncate:30:'...'}</a>
+                                        href="{$product.url}">{$product.name|truncate:50:'...'}</a>
                             </p>
                         {/if}
                     {/block}
@@ -96,8 +96,10 @@
 
                                 {if $customer.is_logged}
                                     <div class="d-table w-100 h-100">
-                                        <span class="price d-table-cell border border-left-0 border-bottom-0">{$product.price_tax_exc|replace:".":","}&nbsp;{$currency.sign}</span>
-                                        <span class="price d-table-cell border border-left-0 border-right-0 border-bottom-0">{$product.price}</span>
+                                        <span class="price d-table-cell border border-left-0 border-bottom-0">{l s='%price% tax excl.' d='Shop.Theme.Catalog' sprintf=['%price%' => {$product.price_tax_exc|replace:".":","}]}&nbsp;</span>
+                                        <span class="price d-table-cell border border-left-0 border-right-0 border-bottom-0">
+                                            {$product.price}
+                                        </span>
                                     </div>
 
                                 {else}

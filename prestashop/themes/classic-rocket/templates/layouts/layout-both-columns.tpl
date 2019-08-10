@@ -123,12 +123,12 @@
         </div>
         {* end search filter *}
         {* offcanvas menu *}
-        <div class="modal fade" id="mobile_top_menu_wrapper" tabindex="-1" role="dialog" data-modal-hide-mobile>
-            <div class="modal-dialog modal-dialog__offcanvas" role="document">
+        <div class="modal fade p-0" id="mobile_top_menu_wrapper" tabindex="-1" role="dialog" data-modal-hide-mobile>
+            <div class="modal-dialog modal-dialog__offcanvas w-100" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="{l s='Close' d='Shop.Theme.Global'}">
-                            <span aria-hidden="true">&times;</span>
+                    <div class="modal-header align-items-center">
+                        <button type="button" class="close m-0" data-dismiss="modal" aria-label="{l s='Close' d='Shop.Theme.Global'}">
+                            <span class="material-icons" aria-hidden="true">close</span>
                         </button>
                     </div>
                     <div class="modal-body">

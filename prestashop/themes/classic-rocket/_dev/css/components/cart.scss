@@ -1,5 +1,5 @@
 .blockcart {
-  color: #fff;
+  color: $white;
   //background-color: theme-color('primary');
   padding: $spacer/2;
 
@@ -24,9 +24,10 @@
   &.inactive {
     color: $gray-600;
     //background-color: $gray-200;
-    .cart-products-count{
+    .cart-products-count {
       background: $gray-400;
     }
+
     .material-icons {
       color: $gray-600;
     }
@@ -34,5 +35,73 @@
 }
 
 
+
+//card left column (list of products added)
+.card-body{
+  position: relative;
+  .cart__card-loader{
+    @include abs-equal();
+  }
+
+}
+
+
+
+.cart-container {
+
+  border-bottom: unset;
+
+  .card-header {
+    border-bottom: unset;
+  }
+
+  .card-body {
+    @extend .border-bottom;
+    @extend .border-top;
+    padding: 0;
+  }
+
+
+    //medias
+  .media {
+    align-items: center;
+
+    @include media-breakpoint-up(sm) {
+      border-right: $border-width solid $border-color;
+    }
+
+    img {
+      @extend .mx-3;
+    }
+
+    a {
+      color: $primary;
+    }
+  }
+
+  .remove-from-cart {
+    transition: color .4s $bezier3;
+
+    &:hover i{
+      color: $danger;
+    }
+  }
+}
+
+.cart-grid {
+  .btn{
+    width:100%;
+  }
+  .card-footer{
+    padding: 0;
+  }
+  .card--reassurance{
+    @extend .border;
+  }
+}
+
+.cart-summary{
+  margin-bottom: $spacer-bloc;
+}
 
 

@@ -23,12 +23,12 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div class="modal fade js-product-images-modal" id="product-modal">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <div data-slick id="js-slick-product">
                     {foreach from=$product.images item=image}
-                        <figure class="position-relative rc rc_1_1">
+                        <figure class="position-relative rc_1_1">
                             <img data-src="{$image.large.url}" class="img-fluid lazyload" width="{$image.large.width}" alt="{$image.legend}" title="{$image.legend}">
                         </figure>
                     {/foreach}
