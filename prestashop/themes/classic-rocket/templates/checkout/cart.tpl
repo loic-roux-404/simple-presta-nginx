@@ -32,7 +32,7 @@
             <div class="cart-grid-body col-12 col-lg-8">
 
                 <!-- cart products detailed -->
-                <div class="card cart-container shadow mb-3">
+                <div class="card cart-container shadow mb-spacer">
                     <div class="card-header">
                         <h1 class="display-1 pl-3">{l s='Shopping Cart' d='Shop.Theme.Checkout'}</h1>
                     </div>
@@ -51,7 +51,7 @@
                 </div>
 
                 {block name='continue_shopping'}
-                    <a class="label btn btn-outline-primary li-d"
+                    <a class="label btn btn-outline-primary li-d li-d-reverse"
                        href="{$urls.pages.index}">
                         {l s='Continue shopping' d='Shop.Theme.Actions'}
                     </a>

@@ -1,11 +1,19 @@
 
-.col-xs-12{
+.col-xs-12 {
   @extend .col-12;
 }
 
-.float-xs-left  { @extend .float-left; }
-.float-xs-right { @extend .float-right; }
-.float-xs-none  { @extend .float-none; }
+.float-xs-left {
+  @extend .float-left;
+}
+
+.float-xs-right {
+  @extend .float-right;
+}
+
+.float-xs-none {
+  @extend .float-none;
+}
 
 @each $bp in map-keys($grid-breakpoints) {
   .hidden-#{$bp}-up {
@@ -20,8 +28,60 @@
   }
 }
 
-.border-lg-right{
+.border-lg-right {
   @include media-breakpoint-up(lg) {
-    border-right:$border-width solid $border-color;
+    border-right: $border-width solid $border-color;
+  }
+}
+
+.mt-spacer {
+  margin-top: $spacer-bloc;
+}
+
+.mb-spacer {
+  margin-bottom: $spacer-bloc;
+}
+
+.mr-spacer {
+  margin-right: $spacer-bloc;
+}
+
+.ml-spacer {
+  margin-left: $spacer-bloc;
+}
+
+.btn-outline-primary {
+  transition: color .4s $bezier3, background .35s $bezier2;
+  &:hover {
+    color: $white;
+
+    i, span {
+      color: $white;
+    }
+  }
+}
+
+//hover
+.primary-hover{
+  &, i {
+    transition: color .35s $bezier3;
+  }
+
+  &:hover {
+    &, i, span {
+      color: $primary!important;
+    }
+  }
+}
+
+.danger-hover {
+  &, i, span {
+    transition: color .35s $bezier3 !important;
+  }
+
+  &:hover {
+    &, i, span {
+      color: $danger !important;
+    }
   }
 }

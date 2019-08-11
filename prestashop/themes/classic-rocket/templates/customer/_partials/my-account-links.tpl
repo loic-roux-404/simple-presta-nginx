@@ -23,12 +23,11 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='my_account_links'}
-  <a href="{$urls.pages.my_account}" class="account-link">
-    <i class="material-icons">&#xE5CB;</i>
+  <a href="{$urls.pages.my_account}" class="account-link py-2">
     <span>{l s='Back to your account' d='Shop.Theme.Customeraccount'}</span>
   </a>
-  <a href="{$urls.pages.index}" class="account-link">
-    <i class="material-icons">&#xE88A;</i>
+  <a href="{$urls.pages.index}" class="account-link border-left border-right py-2 px-3">
+    <i class="material-icons-outline">home</i>
     <span>{l s='Home' d='Shop.Theme.Global'}</span>
   </a>
 {/block}

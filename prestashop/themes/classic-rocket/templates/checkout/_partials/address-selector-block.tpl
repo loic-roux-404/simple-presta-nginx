@@ -23,56 +23,63 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='address_selector_blocks'}
-  {foreach $addresses as $address}
-    <article
-      class="address-item col-12 col-md-6 col-lg-4 mb-3{if $address.id == $selected} selected{/if}"
-      id="{$name|classname}-address-{$address.id}"
-    >
-      <label for="r-{$name|classname}-address-{$address.id}" class="card mb-0">
-        <div class="card-header">
-          <div class="custom-control custom-radio">
-            <input
-                    type="radio"
-                    name="{$name}"
-                    value="{$address.id}"
-                    id="r-{$name|classname}-address-{$address.id}"
-                    class="custom-control-input"
-                    {if $address.id == $selected}checked{/if}
-            >
-            <span class="custom-control-label d-inline-block font-weight-bold">{$address.alias}</span>
-          </div>
+    {foreach $addresses as $address}
+        <article
+                class="address-item col-12 col-md-6 mb-3{if $address.id == $selected} selected{/if}"
+                id="{$name|classname}-address-{$address.id}"
+        >
+            <label for="r-{$name|classname}-address-{$address.id}"
+                   class="card mb-0 border">
+                <div class="card-header">
+                    <div class="custom-control custom-radio">
+                        <input
+                                type="radio"
+                                name="{$name}"
+                                value="{$address.id}"
+                                id="r-{$name|classname}-address-{$address.id}"
+                                class="custom-control-input"
+                                {if $address.id == $selected}checked{/if}
+                        >
+                        <span class="custom-control-label d-inline-block font-weight-bold">{$address.alias}</span>
+                    </div>
 
-        </div>
-      <div class="card-body small">
-          {$address.formatted nofilter}
-      </div>
-          {if $interactive}
-        <div class="card-footer small">
+                </div>
+                <div class="card-body small border-bottom-0">
+                    {$address.formatted nofilter}
+                </div>
+                {if $interactive}
+                    <div class="card-footer small p-0 border-top-0">
+                        <div class="d-table h-100 w-100 text-center">
+                            <div class="d-table-cell align-middle p-3 border-right w-50">
+                                <a
+                                        class="edit-address primary-hover"
+                                        data-link-action="edit-address"
+                                        href="{url entity='order' params=['id_address' => $address.id, 'editAddress' => $type, 'token' => $token]}"
+                                >
+                                    <i class="material-icons edit">&#xE254;</i>{l s='Edit' d='Shop.Theme.Actions'}
+                                </a>
+                            </div>
+                            <div class="d-table-cell align-middle p-3 w-50">
 
-        <a
-                    class="edit-address text-muted"
-                    data-link-action="edit-address"
-                    href="{url entity='order' params=['id_address' => $address.id, 'editAddress' => $type, 'token' => $token]}"
-            >
-              <i class="material-icons edit">&#xE254;</i>{l s='Edit' d='Shop.Theme.Actions'}
-            </a>
-            <a
-                    class="delete-address text-muted"
-                    data-link-action="delete-address"
-                    href="{url entity='order' params=['id_address' => $address.id, 'deleteAddress' => true, 'token' => $token]}"
-            >
-              <i class="material-icons delete">&#xE872;</i>{l s='Delete' d='Shop.Theme.Actions'}
-            </a>
-        </div>
+                                <a
+                                        class="delete-address danger-hover"
+                                        data-link-action="delete-address"
+                                        href="{url entity='order' params=['id_address' => $address.id, 'deleteAddress' => true, 'token' => $token]}"
+                                >
+                                    <i class="material-icons delete">&#xE872;</i>{l s='Delete' d='Shop.Theme.Actions'}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {/if}
 
-          {/if}
-
-      </label>
-    </article>
-  {/foreach}
-  {if $interactive}
-    <p>
-      <button class="ps-hidden-by-js form-control-submit center-block" type="submit">{l s='Save' d='Shop.Theme.Actions'}</button>
-    </p>
-  {/if}
+            </label>
+        </article>
+    {/foreach}
+    {if $interactive}
+        <p>
+            <button class="ps-hidden-by-js form-control-submit center-block"
+                    type="submit">{l s='Save' d='Shop.Theme.Actions'}</button>
+        </p>
+    {/if}
 {/block}

@@ -23,7 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 
-<div class="block-contact col-md-4 col-lg-3 pb-3 pb-md-0">
+<div class="block-contact col-md-4 col-xl-3 pb-3 pb-md-0">
     <p class="footer__title footer__title--desktop">{l s='Store information' d='Shop.Theme.Global'}</p>
     <a href="#footer_store_info" class="footer__title--mobile footer__title">{l s='Store information' d='Shop.Theme.Global'}</a>
 

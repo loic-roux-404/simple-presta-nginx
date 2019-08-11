@@ -23,8 +23,8 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div class="form-inline">
-    <div class="form-group mb-0">
-        <label for="select-sort-order" class="d-none d-sm-inline-block">{l s='Sort by:' d='Shop.Theme.Global'}</label>
+    <div class="form-group mb-0 mw-100">
+        <label for="select-sort-order" class="d-none d-sm-block">{l s='Sort by:' d='Shop.Theme.Global'}</label>
         <select class="custom-select ml-sm-2" id="select-sort-order">
             {foreach from=$listing.sort_orders item=sort_order}
                 <option value="{$sort_order.url}"{if $sort_order.current} selected="selected"{/if}>{$sort_order.label}</option>

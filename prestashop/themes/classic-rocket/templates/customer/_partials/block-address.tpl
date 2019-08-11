@@ -23,23 +23,33 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='address_block_item'}
-  <article id="address-{$address.id}" class="address" data-id-address="{$address.id}">
-    <p class="address-header h4">{$address.alias}</p>
-    <div class="address-body">
-      <address>{$address.formatted nofilter}</address>
-    </div>
+    <article id="address-{$address.id}" class="address"
+             data-id-address="{$address.id}">
+        <p class="address-header h4">{$address.alias}</p>
+        <div class="address-body">
+            <address>{$address.formatted nofilter}</address>
+        </div>
 
-    {block name='address_block_item_actions'}
-      <div class="address-footer small">
-        <a href="{url entity=address id=$address.id}" data-link-action="edit-address">
-          <i class="material-icons">&#xE254;</i>
-          <span>{l s='Update' d='Shop.Theme.Actions'}</span>
-        </a>
-        <a href="{url entity=address id=$address.id params=['delete' => 1, 'token' => $token]}" data-link-action="delete-address">
-          <i class="material-icons ">&#xE872;</i>
-          <span>{l s='Delete' d='Shop.Theme.Actions'}</span>
-        </a>
-      </div>
-    {/block}
-  </article>
+        {block name='address_block_item_actions'}
+            <div class="address-footer small p-0">
+                <div class="d-table h-100 w-100 text-center">
+                    <div class="d-table-cell p-3 align-middle border-right w-50">
+                        <a href="{url entity=address id=$address.id}"
+                           data-link-action="edit-address">
+                            <i class="material-icons">&#xE254;</i>
+                            <span>{l s='Update' d='Shop.Theme.Actions'}</span>
+                        </a>
+                    </div>
+                    <div class="d-table-cell p-3 align-middle w-50">
+                        <a class="danger-hover"
+                           href="{url entity=address id=$address.id params=['delete' => 1, 'token' => $token]}"
+                           data-link-action="delete-address">
+                            <i class="material-icons ">&#xE872;</i>
+                            <span>{l s='Delete' d='Shop.Theme.Actions'}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {/block}
+    </article>
 {/block}

@@ -1,0 +1,186 @@
+
+//FORMS
+
+.page-content,
+.checkout-form,
+.page-wrapper--order-confirmation {
+  form section {
+    @extend .row;
+  }
+  form .btn-primary{
+    @extend .px-5
+  }
+}
+
+.register-form p a {
+  color: $primary;
+  font-weight: $font-weight-bolder;
+}
+
+.page-content--identity form section,
+.register-form section {
+  .form-group:first-of-type {
+    @extend .row;
+    align-items: center;
+    justify-content: center;
+
+
+    @include media-breakpoint-up(lg) {
+      justify-content: start;
+      .custom-control {
+        padding-left: 2.35rem;
+      }
+    }
+
+
+    label {
+      display: block;
+      @extend .col-12;
+    }
+  }
+
+  .form-group:nth-child(3) {
+
+
+    @include media-breakpoint-up(lg) {
+      padding-left: 2.75rem;
+
+      input {
+        width: 106.2%;
+      }
+    }
+
+  }
+}
+
+
+
+
+
+
+.register-form section .form-group:last-of-type, .js-customer-form section .form-group:last-of-type{
+  @extend .col-8;
+  margin: 0 auto;
+}
+
+.form-group {
+  @extend .col-lg-6;
+
+  label,
+  .label {
+
+    small,
+    .small {
+      font-size: 0.75 * $font-size-base;
+    }
+  }
+
+
+  input[type="password"], input[name="password"] {
+    @extend .col-9;
+    @extend .pr-0;
+  }
+
+  input[type="password"] ~ .input-group-btn {
+    @extend .col-3;
+    @extend .px-0;
+
+    .btn {
+      @extend .px-2;
+      width: 100%;
+    }
+  }
+
+  input[type="password"] ~ .form-text, input[name="password"] ~ .form-text {
+    width: 100%;
+    @extend .py-2;
+  }
+}
+
+form .form-group {
+  label {
+    &:first-of-type {
+      font-weight: $font-weight-bolder;
+    }
+  }
+
+}
+
+.register-form .form-group:last-of-type label, form .form-group .custom-checkbox > label {
+  font-weight: $font-weight-light;
+}
+
+.page-content,
+.checkout-form,
+.page-wrapper--order-confirmation {
+  form section {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .page-content,
+  .checkout-form,
+  .page-wrapper--order-confirmation {
+    form section {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  .page-wrapper--order-detail {
+    form {
+      margin: unset;
+    }
+  }
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: $spacer;
+}
+
+// badge order history
+.badge.dark {
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+//fix ugly focus on select and qty
+select:focus, .bootstrap-touchspin input, input[type="radio"], input[type="checkbox"] {
+  box-shadow: unset !important;
+}
+
+//contact form
+.contact-form h1{
+  @extend .display-1;
+  width:100%;
+}
+
+// checkout steps forms
+#checkout form > .form-wrapper{
+  @include media-breakpoint-up(md) {
+    width: 80%;
+    margin:0 auto;
+  }
+}
+#checkout .form-group {
+  @extend .col-12;
+}
+
+
+//forms fix
+main > .notifications-container {
+  @extend .l-wrapper;
+}
+
+.notifications-container {
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.js-invalid-feedback-browser:empty {
+  display: none;
+}

@@ -4,6 +4,8 @@
 $white: #fff;
 $primary: #5ba8d5;
 $danger: #fe8282;
+$success:#91DBBC;
+$info:#355D92;
 $black: #000;
 $gray-200: #e9ecef;
 $gray-300: #f1f1f1;
@@ -89,7 +91,7 @@ $enable-responsive-font-sizes: true;
 
 $box-shadow: 0px;
 $box-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.04);
-
+$input-focus-box-shadow:0 0 0px 1px $body-color;
 
 // Navs
 $nav-tabs-border-width: 2px;
@@ -132,6 +134,11 @@ $modal-transition: transform .3s $bezier;
 
 //tables
 $table-bg: $white;
+//====forms====
+//buttons
+$btn-padding-y:.5rem;
+
+//input
 
 
 //card
