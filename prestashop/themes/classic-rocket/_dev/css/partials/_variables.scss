@@ -91,7 +91,6 @@ $enable-responsive-font-sizes: true;
 
 $box-shadow: 0px;
 $box-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.04);
-$input-focus-box-shadow:0 0 0px 1px $body-color;
 
 // Navs
 $nav-tabs-border-width: 2px;
@@ -137,10 +136,11 @@ $table-bg: $white;
 //====forms====
 //buttons
 $btn-padding-y:.5rem;
-
+$btn-focus-width:1px;
 //input
-
-
+$input-focus-box-shadow: inset 0 0 0px 1px $body-color;
+$input-focus-border-color:$body-color;
+$input-height:3rem;
 //card
 $card-border-color: $gray-400;
 $card-cap-bg: $white;

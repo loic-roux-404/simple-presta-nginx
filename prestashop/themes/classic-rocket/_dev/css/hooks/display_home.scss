@@ -1,0 +1,106 @@
+//display home and landing page design
+
+$left: -2.5em;
+$top: 24px;
+$left-p: 1.025em;
+$fsz: 3.5rem;
+$s: 29px;
+$he: 69%;
+
+.l-wrapper .ld-page {
+  position: relative;
+
+  .ld-page-wrapper {
+    position: relative;
+    z-index: 2;
+    background: $white;
+    @extend .border;
+  }
+
+  .display-2 {
+    position: relative;
+    @extend .py-2;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      font-size: $fsz;
+      left: -$left-p;
+      top: 50%;
+      transform: translateY(-50%);
+      height: $s;
+      width: $s;
+      background: center no-repeat linear-gradient($white, darken($white, 1.05));
+      border-radius: 50%;
+      margin: auto;
+      text-align: center;
+      line-height: .4735;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &::before {
+      content: "";
+      height: 77%;
+      width: 100%;
+      border: $border-width solid $border-color;
+      background: $white;
+      position: absolute;
+      left: $left;
+      top: $top;
+      background: $white;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: - $left-p - 0.29em;
+      height: $he;
+      top: $top*2;
+      width: 4px;
+      background: $body-color;
+      border-radius: $border-radius;
+    }
+  }
+}
+
+// category
+#cms .page-content {
+  padding: 0;
+
+  .ld-page-wrapper {
+    @extend .border-top-0;
+  }
+}
+
+#cms .page-wrapper {
+  background: unset;
+  @extend .border-bottom-0;
+  @extend .border-right-0;
+  @extend .border-left-0;
+
+  .page-header {
+    border:unset;
+    @extend .border-right;
+    @extend .border-left;
+
+    h1 {
+      @extend .display-1;
+    }
+  }
+
+  .ld-page {
+
+    @include media-breakpoint-up(md) {
+      &::before {
+        height: 90%;
+      }
+
+      &::after {
+
+        height: 80%;
+      }
+    }
+  }
+}
+

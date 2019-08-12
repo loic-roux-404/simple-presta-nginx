@@ -22,7 +22,7 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-{if $product.show_price}
+{if $product.show_price && $customer.is_logged}
     <div class="product-prices pr-5">
         {block name='product_discount'}
             {if $product.has_discount}
@@ -109,5 +109,11 @@
 
         {hook h='displayProductPriceBlock' product=$product type="weight" hook_origin='product_sheet'}
 
+    </div>
+{else}
+    <div class="no-logged-prices d-table h-100">
+        <a href="{$urls.pages.authentication}" class="d-table-cell align-middle primary-hover font-weight-bold">
+            {l s='Log in to see prices' d='Shop.Theme.Catalog'}
+        </a>
     </div>
 {/if}

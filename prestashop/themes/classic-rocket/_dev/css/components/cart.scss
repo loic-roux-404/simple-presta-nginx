@@ -113,7 +113,7 @@
     text-decoration: underline;
     transition: .4s $bezier3;
 
-    &:hover{
+    &:hover :not(.product-name) :not(.product-quantity) :not(.product-price){
       color:$primary;
     }
   }

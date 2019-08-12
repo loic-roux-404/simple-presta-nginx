@@ -1,3 +1,5 @@
+
+
 .modal-dialog {
   z-index: 3;
   height: 100%;
@@ -54,6 +56,7 @@ $sep-modal: 50%;
 .modal::after, .modal::before {
   @include effect-ab($sep-modal, $white);
   opacity: .8;
+  @extend .border-0;
 }
 
 .modal {
@@ -73,6 +76,7 @@ $sep-modal: 50%;
     &::after, &::before {
       transform: translateY(0);
       box-shadow: unset !important;
+
     }
 
   }

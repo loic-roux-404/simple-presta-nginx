@@ -52,6 +52,7 @@
 
 .btn-outline-primary {
   transition: color .4s $bezier3, background .35s $bezier2;
+
   &:hover {
     color: $white;
 
@@ -62,14 +63,14 @@
 }
 
 //hover
-.primary-hover{
+.primary-hover {
   &, i {
     transition: color .35s $bezier3;
   }
 
   &:hover {
     &, i, span {
-      color: $primary!important;
+      color: $primary !important;
     }
   }
 }
@@ -85,3 +86,14 @@
     }
   }
 }
+
+// texts status
+
+i.text-danger ~ span {
+  color: $danger;
+}
+
+i.text-warning ~ span {
+  color: darken($warning, 2.5);
+}
+

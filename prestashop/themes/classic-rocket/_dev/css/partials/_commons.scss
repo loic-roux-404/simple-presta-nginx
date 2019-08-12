@@ -2,19 +2,20 @@ body {
   background: $primary;
   overflow-x: hidden;
 }
-
-#checkout {
-  background: linear-gradient(68deg, rgba($primary, .40), rgba($danger, .25));
-
-  .l-header {
-    background: $white;
-    @extend .border-bottom;
-  }
-
-  .header-nav {
-    @extend .border-0;
-  }
+*{
+  -webkit-border-before: unset;
 }
+
+::after,::before
+{
+  border: unset;
+  outline: none;
+  overflow: hidden;
+}
+
+
+
+
 
 main {
   background-color: $wrapper-bg;
@@ -115,9 +116,6 @@ body:not(.page-index) .l-header {
 //specific case of header (within card)
 .header-bar {
   width: 80%;
-  @media (min-width: map_get($grid-breakpoints, "md")) {
-    width: 70%;
-  }
 }
 
 //display font fix
@@ -162,9 +160,6 @@ ul {
   @extend .small;
 }
 
-.form-group.form-group_forgot-password {
-  margin-top: -($form-group-margin-bottom/2);
-}
 
 //touch spin
 
@@ -303,6 +298,20 @@ ul {
 }
 
 /* CHECKOUT STEP */
+
+#checkout {
+  background: linear-gradient(68deg, rgba($primary, .40), rgba($danger, .25));
+
+  .l-header {
+    background: $white;
+    @extend .border-bottom;
+  }
+
+  .header-nav {
+    @extend .border-0;
+  }
+}
+
 .order-checkout .card-body {
   padding-bottom: 0;
 }
@@ -533,8 +542,6 @@ ul {
   .step-edit{
     @extend .primary-hover;
   }
-
-
 
   .collapse .card-body {
     @extend .border-bottom;

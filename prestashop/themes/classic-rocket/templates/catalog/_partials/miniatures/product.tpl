@@ -30,7 +30,8 @@
         <div class="card card-product">
 
             <div class="card-img-top">
-                <a href="{$product.url}" class="li-d" title="{l s='See product' d='Shop.Theme.Catalog'}">{l s='See product' d='Shop.Theme.Catalog'}</a>
+                <a href="{$product.url}" class="li-d"
+                   title="{l s='See product' d='Shop.Theme.Catalog'}">{l s='See product' d='Shop.Theme.Catalog'}</a>
 
                 {block name='product_thumbnail'}
                     <a href="{$product.url}"
@@ -50,19 +51,19 @@
                         {/if}
                     </a>
                 {/block}
-{*                <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} d-none d-md-block">*}
-{*                                        {block name='quick_view'}*}
-{*                                            <span class="quick-view" data-link-action="quickview">*}
-{*                                          <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}*}
-{*                                      </span>*}
-{*                                        {/block}*}
+                {*                <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} d-none d-md-block">*}
+                {*                                        {block name='quick_view'}*}
+                {*                                            <span class="quick-view" data-link-action="quickview">*}
+                {*                                          <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}*}
+                {*                                      </span>*}
+                {*                                        {/block}*}
 
-{*                    {block name='product_variants'}*}
-{*                        {if $product.main_variants}*}
-{*                            {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}*}
-{*                        {/if}*}
-{*                    {/block}*}
-{*                </div>*}
+                {*                    {block name='product_variants'}*}
+                {*                        {if $product.main_variants}*}
+                {*                            {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}*}
+                {*                        {/if}*}
+                {*                    {/block}*}
+                {*                </div>*}
             </div>
             {* end card-img-top*}
 
@@ -101,12 +102,13 @@
                                             {$product.price}
                                         </span>
                                     </div>
-
                                 {else}
-                                    <a href="{$my_account_url}"
-                                            title="{l s='Log in to see prices' d='Shop.Theme.Customeraccount'}">
-                                        <span class="product-log">{l s='Sign in' d='Shop.Theme.Actions'}</span>
-                                    </a>
+                                    <div class="border-top py-3">
+                                        <a href="{$urls.pages.authentication}"
+                                           title="{l s='Log in to see prices' d='Shop.Theme.Customeraccount'}">
+                                            <span class="product-log">{l s='Sign in to see prices' d='Shop.Theme.Actions'}</span>
+                                        </a>
+                                    </div>
                                 {/if}
 
                                 {hook h='displayProductPriceBlock' product=$product type='unit_price'}

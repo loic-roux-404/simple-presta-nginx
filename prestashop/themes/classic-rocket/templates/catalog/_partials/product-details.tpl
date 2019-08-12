@@ -45,7 +45,7 @@
   {/block}
 
   {block name='product_out_of_stock'}
-    <div class="product-out-of-stock">
+    <div class="product-out-of-stock text-danger">
       {hook h='actionProductOutOfStock' product=$product}
     </div>
   {/block}

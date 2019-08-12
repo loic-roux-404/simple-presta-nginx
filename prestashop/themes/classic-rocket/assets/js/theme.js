@@ -717,6 +717,53 @@ var supportedValidity = function supportedValidity() {
 
 /***/ }),
 
+/***/ "./js/components/scroll.js":
+/*!*********************************!*\
+  !*** ./js/components/scroll.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return scrollBehaviours; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var scrollBehaviours =
+/*#__PURE__*/
+function () {
+  function scrollBehaviours() {
+    _classCallCheck(this, scrollBehaviours);
+  }
+
+  _createClass(scrollBehaviours, [{
+    key: "scrollTop",
+    value: function scrollTop() {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("a[href^='#']").click(function (e) {
+        e.preventDefault();
+        var aid = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr("href");
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('html,body').animate({
+          scrollTop: jquery__WEBPACK_IMPORTED_MODULE_0___default()(aid).offset().top
+        }, 450);
+      });
+    }
+  }]);
+
+  return scrollBehaviours;
+}();
+
+
+
+/***/ }),
+
 /***/ "./js/components/slick.js":
 /*!********************************!*\
   !*** ./js/components/slick.js ***!
@@ -2230,13 +2277,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cart__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./cart */ "./js/cart.js");
 /* harmony import */ var _components_form__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/form */ "./js/components/form.js");
 /* harmony import */ var _components_top_menu__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/top-menu */ "./js/components/top-menu.js");
-/* harmony import */ var prestashop__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! prestashop */ "prestashop");
-/* harmony import */ var prestashop__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(prestashop__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! events */ "./node_modules/events/events.js");
-/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var _components_block_cart__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/block-cart */ "./js/components/block-cart.js");
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _components_scroll__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/scroll */ "./js/components/scroll.js");
+/* harmony import */ var prestashop__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! prestashop */ "prestashop");
+/* harmony import */ var prestashop__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(prestashop__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! events */ "./node_modules/events/events.js");
+/* harmony import */ var events__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(events__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _components_block_cart__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/block-cart */ "./js/components/block-cart.js");
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_26__);
 /**
  * 2007-2017 PrestaShop
  *
@@ -2286,10 +2334,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  // "inherit" EventEmitter
 
-for (var i in events__WEBPACK_IMPORTED_MODULE_23___default.a.prototype) {
-  prestashop__WEBPACK_IMPORTED_MODULE_22___default.a[i] = events__WEBPACK_IMPORTED_MODULE_23___default.a.prototype[i];
+for (var i in events__WEBPACK_IMPORTED_MODULE_24___default.a.prototype) {
+  prestashop__WEBPACK_IMPORTED_MODULE_23___default.a[i] = events__WEBPACK_IMPORTED_MODULE_24___default.a.prototype[i];
 }
 
 $(document).ready(function () {
@@ -2297,9 +2346,11 @@ $(document).ready(function () {
   var slickSlider = new _components_slick__WEBPACK_IMPORTED_MODULE_13__["default"]();
   var topMenuEl = $('#_desktop_top_menu #top-menu');
   var topMenu = new _components_top_menu__WEBPACK_IMPORTED_MODULE_21__["default"](topMenuEl);
+  var sc = new _components_scroll__WEBPACK_IMPORTED_MODULE_22__["default"]();
   form.init();
   slickSlider.init();
-  topMenu.init(); //display input file content in custom file input BS
+  topMenu.init();
+  sc.scrollTop(); //display input file content in custom file input BS
 
   $('.custom-file-input').on('change', function () {
     var fileName = $(this).val().split('\\').pop();

@@ -41,7 +41,7 @@
 
         {block name='cart_summary_product_list'}
           <div class="collapse" id="cart-summary-product-list">
-            <ul class="media-list">
+            <ul class="media-list my-2">
               {foreach from=$cart.products item=product}
                 <li class="media media-list__item">{include file='checkout/_partials/cart-summary-product-line.tpl' product=$product}</li>
               {/foreach}

@@ -82,3 +82,6 @@
 {/block}
 
 {block name='hook_extra'}{/block}
+
+
+<link type="text/plain" rel="author" href="/humans.txt" />

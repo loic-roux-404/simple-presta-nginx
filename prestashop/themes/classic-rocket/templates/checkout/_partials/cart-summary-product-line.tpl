@@ -23,22 +23,26 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {block name='cart_summary_product_line'}
-    <a href="{$product.url}" title="{$product.name}" class="mr-3"">
-      <img class="media-object" src="{$product.cover.small.url}" alt="{$product.name}" width="50">
+    <a href="{$product.url}" title="{$product.name}" class="mr-3">
+        <img class="media-object" src="{$product.cover.small.url}"
+             alt="{$product.name}" width="50">
     </a>
-  <div class="media-body small">
-    <div class="product-name">{$product.name}</div>
-    <div class="clearfix">
-      <span class="product-quantity float-left">x{$product.quantity}</span>
-      <span class="product-price float-right">{$product.price}</span>
+    <div class="media-body small">
+        <a href="{$product.url}" title="{$product.name}" class="mr-3 product-name primary-hover">
+          {$product.name}
+        </a>
+
+        <div class="clearfix">
+            <span class="product-quantity float-left">x{$product.quantity}</span>
+            <span class="product-price float-right">{$product.price}</span>
+        </div>
+        {hook h='displayProductPriceBlock' product=$product type="unit_price"}
+        {foreach from=$product.attributes key="attribute" item="value"}
+            <div class="product-line-info product-line-info-secondary text-muted small">
+                <span class="label">{$attribute}:</span>
+                <span class="value">{$value}</span>
+            </div>
+        {/foreach}
+        <br/>
     </div>
-    {hook h='displayProductPriceBlock' product=$product type="unit_price"}
-  {foreach from=$product.attributes key="attribute" item="value"}
-      <div class="product-line-info product-line-info-secondary text-muted small">
-          <span class="label">{$attribute}:</span>
-          <span class="value">{$value}</span>
-      </div>
-  {/foreach}
-  <br/>
-  </div>
 {/block}

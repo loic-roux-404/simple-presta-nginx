@@ -46,10 +46,11 @@ import './cart';
 
 import Form from './components/form';
 import TopMenu from './components/top-menu';
+import scrollBehaviours from './components/scroll'
+
 
 import prestashop from 'prestashop';
 import EventEmitter from 'events';
-
 
 import './components/block-cart';
 import lazysizes from 'lazysizes'
@@ -65,10 +66,13 @@ $(document).ready(() => {
   let slickSlider = new SlickSlider();
   let topMenuEl = $('#_desktop_top_menu #top-menu');
   let topMenu = new TopMenu(topMenuEl);
+  let sc = new scrollBehaviours();
 
   form.init();
   slickSlider.init();
   topMenu.init();
+
+  sc.scrollTop();
 
   //display input file content in custom file input BS
   $('.custom-file-input').on('change',function(){

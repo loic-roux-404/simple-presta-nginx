@@ -124,6 +124,7 @@
                 <span class="gift-quantity col-12">{$product.quantity}</span>
             {else}
                 <div class="col-12 h-50">
+                    <div class="border-bottom">
                     <input
                             class="js-cart-line-product-quantity my-2"
                             data-down-url="{$product.down_quantity_url}"
@@ -135,10 +136,11 @@
                             name="product-quantity-spin"
                             min="{$product.minimal_quantity}"
                     />
+                    </div>
                 </div>
             {/if}
             <div class="col-12 h-50">
-                <div class="d-table w-100 h-100 text-center border-top">
+                <div class="d-table w-100 h-100 text-center">
                 <span class="d-table-cell align-middle w-75 border-right product-price">
                   <strong>
                     {if isset($product.is_gift) && $product.is_gift}

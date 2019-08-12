@@ -41,8 +41,8 @@
     {/block}
 {/block}
 {block name='page_footer'}
-  <div class="no-account">
-    <a href="{$urls.pages.register}" data-link-action="display-register-form">
+  <div class="no-account text-center">
+    <a href="{$urls.pages.register}" class="primary-hover" data-link-action="display-register-form">
         {l s='No account? Create one here' d='Shop.Theme.Customeraccount'}
     </a>
   </div>

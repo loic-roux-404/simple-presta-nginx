@@ -51,7 +51,7 @@
                             class="btn btn-primary add-to-cart btn btn-block btn-add-to-cart js-add-to-cart"
                             data-button-action="add-to-cart"
                             type="submit"
-                            {if !$product.add_to_cart_url}
+                            {if !$product.add_to_cart_url || !$customer.is_logged}
                                 disabled
                             {/if}
                     >
@@ -66,27 +66,21 @@
 
         {block name='product_availability'}
             <span id="product-availability">
-        {if $product.show_availability && $product.availability_message}
+
+
+
+        {if $product.show_availability && $product.availability_message }
             {if $product.availability == 'available'}
                 <i class="material-icons rtl-no-flip product-available text-success">&#xE5CA;</i>
 
-
-
-{elseif $product.availability == 'last_remaining_items'}
-
-
-
-                <i class="material-icons product-last-items text-warning">&#xE002;</i>
-
-
-
-{else}
-
-
+                {elseif $product.availability == 'last_remaining_items'}
+                    <i class="material-icons product-last-items text-warning">&#xE002;</i>
+                {else}
 
                 <i class="material-icons product-unavailable text-danger">&#xE14B;</i>
             {/if}
-            <span class="text-danger">{$product.availability_message}</span>
+
+            <span class="text-availability">{$product.availability_message}</span>
         {/if}
       </span>
         {/block}

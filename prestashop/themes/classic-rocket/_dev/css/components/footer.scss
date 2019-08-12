@@ -20,20 +20,20 @@
 
 
 .footer-container {
-  padding-top: $bg-spacer/1.5;
+  padding-top: $bg-spacer;
   @extend .pb-4;
 
   @include media-breakpoint-up(md) {
-    padding-top: $bg-spacer;
+    padding-top: $bg-spacer *1.2;
   }
   @include media-breakpoint-up(lg) {
-    padding-top: $bg-spacer*1.3;
+    padding-top: $bg-spacer*1.575;
   }
   @include media-breakpoint-up(xl) {
-    padding-top: $bg-spacer*1.5;
+    padding-top: $bg-spacer*1.785;
   }
   @media (min-width: 1500px) {
-    padding-top: $bg-spacer*1.75;
+    padding-top: 12%;
   }
 }
 
@@ -49,11 +49,11 @@
     background: center bottom /100% no-repeat url('../img/itib-bg.svg'); //, -16% -15%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
     //background:50% 0/cover no-repeat;
     width: 110%;
-    height: 50%;
+    height: 40%;
     position: absolute;
     left: -1em;
     top: 0;
-    transform: translateY(-6%) rotate(180deg);
+    transform: translateY(-3%) rotate(180deg);
 
     @include media-breakpoint-up(md) {
       height: 100%;
