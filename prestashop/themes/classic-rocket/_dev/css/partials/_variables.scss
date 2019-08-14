@@ -2,21 +2,22 @@
 // Color system
 //
 $white: #fff;
-$primary: #5ba8d5;
+$light:#fafafa;
+$primary: #3ABDA4;
 $danger: #fe8282;
-$success:#91DBBC;
-$info:#355D92;
+$success: #91DBBC;
 $black: #000;
 $gray-200: #e9ecef;
 $gray-300: #f1f1f1;
 $gray-400: #ced4da;
 $gray-500: #b6c1c2;
-$gray-600: #6c7778;
+$gray-600: #808b8c;
 $gray-700: #737373;
 $gray-800: #696969;
 
+$darker: $gray-600;
 
-$body-color: $gray-700;
+$body-color: $darker;
 //borders
 $border-width: 1px;
 $border-color: $gray-400;
@@ -48,7 +49,7 @@ $bezier3: cubic-bezier(.51, .39, 0, .88);
 //
 // Font, line-height, and color for body text, headings, and more.
 $font-family-sans-serif: "Mukta", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
-"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $headings-font-family: "Mukta", $font-family-sans-serif;
 
 $font-size-base: 1.15rem; // Assumes the browser default, typically `16px`
@@ -73,7 +74,7 @@ $display4-weight: 400;
 
 $small-font-size: $font-size-base * 0.875;
 $display-line-height: 1.15 !important;
-$line-height-computed:1.3;
+$line-height-computed: 1.3;
 //WEIGHTS
 
 $font-weight-lighter: 200;
@@ -135,12 +136,12 @@ $modal-transition: transform .3s $bezier;
 $table-bg: $white;
 //====forms====
 //buttons
-$btn-padding-y:.5rem;
-$btn-focus-width:1px;
+$btn-padding-y: .5rem;
+$btn-focus-width: 1px;
 //input
 $input-focus-box-shadow: inset 0 0 0px 1px $body-color;
-$input-focus-border-color:$body-color;
-$input-height:3rem;
+$input-focus-border-color: $body-color;
+$input-height: 3rem;
 //card
 $card-border-color: $gray-400;
 $card-cap-bg: $white;

@@ -68,7 +68,7 @@
   z-index: 2;
   @if ($box-shadow) {
     transition: transform $d $bezier2, box-shadow .79s ease-in;
-    box-shadow: 0 0 0 0 $primary;
+    box-shadow: 0 0 0 0 $color;
   }
   @else {
     transition: transform $d $bezier2 , $d*2 opacity $bezier3;

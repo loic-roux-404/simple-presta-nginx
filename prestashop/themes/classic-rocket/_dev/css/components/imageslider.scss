@@ -92,7 +92,7 @@
 
   &::after {
     content: '';
-    background: center bottom /100% no-repeat url('../img/itib-bg.svg'); //, -16% -15%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
+    background: center bottom /100% no-repeat $bg-deco; //, -16% -15%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
     //background:50% 0/cover no-repeat;
     width: 110%;
     height: 50%;
@@ -114,6 +114,8 @@
   }
 }
 
+
+
 //animate
 $sep: 25%;
 $m: 100%;
@@ -124,7 +126,7 @@ $t: .5s;
 #index .slick-slide {
 
   .effect-ab, .rc::before, .rc::after {
-    @include effect-ab($sep, $primary, true)
+    @include effect-ab($sep, $slider-bg, true)
   }
 
   //backgrounds
@@ -189,7 +191,7 @@ $Y: 10em;
 
 @keyframes shdw {
   to {
-    box-shadow: 90px 3px 80px 70px $primary;
+    box-shadow: 90px 3px 80px 70px $slider-bg;
   }
 }
 

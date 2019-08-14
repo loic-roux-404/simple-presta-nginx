@@ -46,7 +46,7 @@
 
   &::before {
     content: '';
-    background: center bottom /100% no-repeat url('../img/itib-bg.svg'); //, -16% -15%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
+    background: center bottom /100% no-repeat $bg-deco; //, -16% -15%/20% no-repeat linear-gradient(to left, $primary, darken($primary, 0.1));
     //background:50% 0/cover no-repeat;
     width: 110%;
     height: 40%;

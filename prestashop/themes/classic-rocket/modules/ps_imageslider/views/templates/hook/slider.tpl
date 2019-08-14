@@ -61,8 +61,10 @@
                     {/if}
                 </a>
             {/foreach}
+
         </div>
     {/if}
+
 
     <h1 class="shop-name">{$shop.name}</h1>
 </div>
