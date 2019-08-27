@@ -1,25 +1,14 @@
 body {
-  background: $darker;
+  background: $body-bg;
   overflow-x: hidden;
+
+  *{
+    -webkit-border-before: unset;
+  }
 }
-*{
-  -webkit-border-before: unset;
-}
-
-::after,::before
-{
-  border: unset;
-  outline: none;
-  overflow: hidden;
-}
-
-
-
-
 
 main {
   background-color: $wrapper-bg;
-
 }
 
 a {
@@ -29,6 +18,12 @@ a {
 sup {
   top: -0.3em;
 }
+
+//fix single images
+figure img, .slick-slide img{
+  margin:auto;
+}
+
 
 .l-wrapper {
   @if $enable-fluid-layout {
@@ -147,6 +142,10 @@ body:not(.page-index) .l-header {
   }
 }
 
+.display-3{
+  font-weight: 800;
+  font-size: $font-size-lg;
+}
 
 /* MISC */
 ul {
@@ -165,6 +164,7 @@ ul {
 
 .bootstrap-touchspin {
   box-shadow: $bs-touchspin-boxshadow;
+  //@extend .border;
 
   > input {
     max-width: 80%;
@@ -603,7 +603,7 @@ a:not(.btn) {
   left: 0;
   bottom: 10%;
   transform: translateY(-10%);
-  text-shadow: $box-shadow-lg;
+  text-shadow: $box-shadow-xl;
   font-weight: $font-weight-bolder;
   text-align: center;
   width: 100vw;

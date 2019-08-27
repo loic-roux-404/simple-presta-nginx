@@ -29,7 +29,8 @@
 
 {$hide_tooltip = !($has_image || $has_description || $has_extension || $has_max_size)}
 {if !$hide_tooltip}
-    <a tabindex="-1" href="#" data-id_field="{$field->id|intval}" class="dp_tooltip"></a>
+
+    <a tabindex="-1" href="#" data-id_field="{$field->id|intval}" class="dp_tooltip d-table-cell"></a>
     <div class="dp_content dp_qtip dp_content_{$field->id|intval}">
 	    {if $has_image}
 	        <img src="{$field->getImageUrl()|escape:'htmlall':'UTF-8'}" alt=""><br>

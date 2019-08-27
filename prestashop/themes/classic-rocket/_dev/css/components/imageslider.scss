@@ -62,7 +62,7 @@
     transform: translateY(-25%);
     width: 100vw;
     margin-bottom: 0;
-    color: $white;
+    color: $slider-color;
     font-size: .7rem;
     z-index: 4;
 
@@ -126,7 +126,7 @@ $t: .5s;
 #index .slick-slide {
 
   .effect-ab, .rc::before, .rc::after {
-    @include effect-ab($sep, $slider-bg, true)
+    @include effect-ab($sep, $slider-bg, true,$d)
   }
 
   //backgrounds
@@ -234,6 +234,7 @@ $Y: 10em;
   .slick-arrow:hover i {
     border-color: $gray-800;
   }
+
 }
 
 .carousel.slick__arrow-large .slick-arrow > i {

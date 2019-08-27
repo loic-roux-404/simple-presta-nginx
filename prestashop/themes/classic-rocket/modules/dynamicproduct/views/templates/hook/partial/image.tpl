@@ -24,17 +24,17 @@
 
 {if !$is_pdf}
     {$target = uniqid()}
-    <a class="dp_thumb_view"
+    <a class="dp_thumb_view rc"
        data-target="#dp_modal_{$target|escape:'htmlall':'UTF-8'}"
        data-label="{$input_field->label|escape:'htmlall':'UTF-8'}"
        href="{$input_field->getFileUrl()|escape:'htmlall':'UTF-8'}"
        target="_blank"
        title="{l s='Click to enlarge' mod='dynamicproduct'}">
-       <img src="{$input_field->getThumbUrl()|escape:'htmlall':'UTF-8'}" alt="">
+       <img class="thumb" src="{$input_field->getThumbUrl()|escape:'htmlall':'UTF-8'}" alt="">
     </a>
     {if !isset($is_admin) || !$is_admin}
     <div class="dp_preview_modal" id="dp_modal_{$target|escape:'htmlall':'UTF-8'}">
-        <img src="{$input_field->getFileUrl()|escape:'htmlall':'UTF-8'}" style="width: 100%;" alt="preview">
+        <img class="thumb" src="{$input_field->getFileUrl()|escape:'htmlall':'UTF-8'}" style="width: 100%;" alt="preview">
     </div>
     {/if}
 {else}

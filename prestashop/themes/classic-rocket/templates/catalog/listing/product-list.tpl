@@ -34,11 +34,11 @@
     <section id="products">
       {if $listing.products|count}
 
-        <div id="">
-          {block name='product_list_top'}
-            {include file='catalog/_partials/products-top.tpl' listing=$listing}
-          {/block}
-        </div>
+{*        <div id="">*}
+{*          {block name='product_list_top'}*}
+{*            {include file='catalog/_partials/products-top.tpl' listing=$listing}*}
+{*          {/block}*}
+{*        </div>*}
 
         {block name='product_list_active_filters'}
           <div id="" class="d-none d-md-block">
@@ -46,7 +46,7 @@
           </div>
         {/block}
 
-        <div id="">
+        <div id="prd" class="mt-spacer">
           {block name='product_list'}
             {include file='catalog/_partials/products.tpl' listing=$listing}
           {/block}

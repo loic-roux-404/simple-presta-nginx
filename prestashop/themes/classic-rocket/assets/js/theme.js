@@ -747,13 +747,15 @@ function () {
   _createClass(scrollBehaviours, [{
     key: "scrollTop",
     value: function scrollTop() {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()("a[href^='#']").click(function (e) {
-        e.preventDefault();
-        var aid = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr("href");
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('html,body').animate({
-          scrollTop: jquery__WEBPACK_IMPORTED_MODULE_0___default()(aid).offset().top
-        }, 450);
-      });
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()("a[href^='#']").length) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()("a[href^='#']").click(function (e) {
+          e.preventDefault();
+          var aid = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr("href");
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('html,body').animate({
+            scrollTop: jquery__WEBPACK_IMPORTED_MODULE_0___default()(aid).offset().top
+          }, 450);
+        });
+      }
     }
   }]);
 

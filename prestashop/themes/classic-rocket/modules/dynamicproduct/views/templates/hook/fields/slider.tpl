@@ -22,23 +22,27 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
+<div class="d-table ui-table-form border">
 
-<span class="dp_slider_value" data-unit="{$field->getUnitSymbol()|escape:'htmlall':'UTF-8'}"></span>
-<input id="dp_{$field->name|escape:'htmlall':'UTF-8'}"
-       data-id="{$field->id|intval}"
-       data-type="{$field->type|intval}"
-       class="dp_entry dp_input dp_slider"
-       data-name="{$field->name|escape:'htmlall':'UTF-8'}"
-       data-min="{$field->settings->min|floatval}"
-       data-max="{$field->settings->max|floatval}"
-       data-step="{$field->settings->step|floatval}"
-       value="{$field->init|floatval}"
-       readonly
-       type="hidden"
-       style="border:0; font-weight:bold;">
-<div class="dp_slider_buttons">
-    <a class="dp_slider_button dp_slider_down" href="#"><span class="ui-icon ui-icon-minus"></span></a>
-    <a class="dp_slider_button dp_slider_up" href="#"><span class="ui-icon ui-icon-plus"></span></a>
+    <span class="dp_slider_value" data-unit="{$field->getUnitSymbol()|escape:'htmlall':'UTF-8'}"></span>
+    <input id="dp_{$field->name|escape:'htmlall':'UTF-8'}"
+        data-id="{$field->id|intval}"
+        data-type="{$field->type|intval}"
+        class="dp_entry dp_input dp_slider"
+        data-name="{$field->name|escape:'htmlall':'UTF-8'}"
+        data-min="{$field->settings->min|floatval}"
+        data-max="{$field->settings->max|floatval}"
+        data-step="{$field->settings->step|floatval}"
+        value="{$field->init|floatval}"
+        readonly
+        type="hidden"
+        style="border:0; font-weight:bold;">
+    <div class="dp_slider_buttons d-none">
+        <a class="dp_slider_button dp_slider_down" href="#"><span class="ui-icon ui-icon-minus"></span></a>
+        <a class="dp_slider_button dp_slider_up" href="#"><span class="ui-icon ui-icon-plus"></span></a>
+    </div>
+    <div class="control-wrapper">
+        <div class="dp_slider_control"></div>
+    </div>
 </div>
-<div class="dp_slider_control"></div>
-{include file="../tooltip/tooltip.tpl"}
+    {include file="../tooltip/tooltip.tpl"}

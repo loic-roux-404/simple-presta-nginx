@@ -29,25 +29,34 @@
 {$hide_tooltip = !($has_image || $has_min_max || $has_unit || $has_description)}
 
 {if !$hide_tooltip}
-	<a tabindex="-1" href="#" data-id_field="{$field->id|intval}" class="dp_tooltip"></a>
-	<div class="dp_content dp_qtip dp_content_{$field->id|intval}">
+        <a tabindex="-1" href="#" data-id_field="{$field->id|intval}"
+           class="dp_tooltip">
+        </a>
+    <div class="dp_content dp_qtip dp_content_{$field->id|intval}">
         {if $has_image}
-			<img src="{$field->getImageUrl()|escape:'htmlall':'UTF-8'}" alt=""><br>
+            <img src="{$field->getImageUrl()|escape:'htmlall':'UTF-8'}" alt="">
+            <br>
             {$hide_tooltip = false}
         {/if}
-		<span><strong>{$field->label|escape:'htmlall':'UTF-8'}</strong></span><br>
+        <span><strong>{$field->label|escape:'htmlall':'UTF-8'}</strong></span><br>
         {if $has_min_max}
-			<span>{l s='Minimum' mod='dynamicproduct'}:</span> <span class="dp_min_{$field->name|escape:'htmlall':'UTF-8'}">{$field->settings->min|floatval}</span><br>
-			<span>{l s='Maximum' mod='dynamicproduct'}:</span> <span class="dp_max_{$field->name|escape:'htmlall':'UTF-8'}">{$field->settings->max|floatval}</span><br>
+            <span>{l s='Minimum' mod='dynamicproduct'}:</span>
+            <span class="dp_min_{$field->name|escape:'htmlall':'UTF-8'}">{$field->settings->min|floatval}</span>
+            <br>
+            <span>{l s='Maximum' mod='dynamicproduct'}:</span>
+            <span class="dp_max_{$field->name|escape:'htmlall':'UTF-8'}">{$field->settings->max|floatval}</span>
+            <br>
             {$hide_tooltip = false}
         {/if}
         {if $has_unit}
-			<span>{l s='Unit' mod='dynamicproduct'}:</span> {$field->getUnitName()|escape:'htmlall':'UTF-8'}<br>
+            <span>{l s='Unit' mod='dynamicproduct'}:</span>
+            {$field->getUnitName()|escape:'htmlall':'UTF-8'}
+            <br>
             {$hide_tooltip = false}
         {/if}
         {if $has_description}
-			<span class="dp_desc">{$field->description|escape:'htmlall':'UTF-8'}</span>
+            <span class="dp_desc">{$field->description|escape:'htmlall':'UTF-8'}</span>
             {$hide_tooltip = false}
         {/if}
-	</div>
+    </div>
 {/if}

@@ -37,6 +37,13 @@
         font-size: 3*$font-size-base;
         text-shadow: 0 1px 2px rgba(0,0,0,.6);
         background: transparent;
-        color: #fff;
     }
+}
+
+
+.page-index .slick-prev{
+    color:$footer-color;
+}
+.page-index .slick-next{
+    color:$white;
 }

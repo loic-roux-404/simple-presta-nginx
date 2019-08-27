@@ -22,21 +22,22 @@
 *  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
 *  International Registered Trademark & Property of PrestaShop SA
 *}
-
-<select id="dp_{$field->name|escape:'htmlall':'UTF-8'}"
-        data-id="{$field->id|intval}"
-        data-type="{$field->type|intval}"
-        class="form-control dp_entry dp_dropdown"
-        data-name="{$field->name|escape:'htmlall':'UTF-8'}"
-        data-label="{$field->label|escape:'htmlall':'UTF-8'}">
-    {foreach from=$field->options item=dropdown_option}
-        <option data-id="{$dropdown_option->id|intval}"
-                data-label="{$dropdown_option->label|escape:'htmlall':'UTF-8'}"
-                value="{$dropdown_option->value|escape:'htmlall':'UTF-8'}"
-                {if $dropdown_option->is_default}selected="selected"{/if}
-        >
-            {$dropdown_option->label|escape:'htmlall':'UTF-8'}
-        </option>
-    {/foreach}
-</select>
+<div class="border">
+    <select id="dp_{$field->name|escape:'htmlall':'UTF-8'}"
+            data-id="{$field->id|intval}"
+            data-type="{$field->type|intval}"
+            class="form-control dp_entry dp_dropdown border-0"
+            data-name="{$field->name|escape:'htmlall':'UTF-8'}"
+            data-label="{$field->label|escape:'htmlall':'UTF-8'}">
+        {foreach from=$field->options item=dropdown_option}
+            <option data-id="{$dropdown_option->id|intval}"
+                    data-label="{$dropdown_option->label|escape:'htmlall':'UTF-8'}"
+                    value="{$dropdown_option->value|escape:'htmlall':'UTF-8'}"
+                    {if $dropdown_option->is_default}selected="selected"{/if}
+            >
+                {$dropdown_option->label|escape:'htmlall':'UTF-8'}
+            </option>
+        {/foreach}
+    </select>
+</div>
 {include file="../tooltip/tooltip.tpl"}

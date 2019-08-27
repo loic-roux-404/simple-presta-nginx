@@ -22,7 +22,7 @@ $he: 69%;
     @extend .py-2;
 
     &::before {
-      content: "•";
+      content: "\2022";
       position: absolute;
       font-size: $fsz;
       left: -$left-p;
@@ -35,34 +35,64 @@ $he: 69%;
       margin: auto;
       text-align: center;
       line-height: .4735;
+      z-index:3;
     }
   }
 
-  @include media-breakpoint-up(md) {
-    &::before {
-      content: "";
-      height: 77%;
-      width: 100%;
-      border: $border-width solid $border-color;
-      background: $white;
-      position: absolute;
-      left: $left;
-      top: $top;
-      background: $white;
-    }
+  .card-body {
+    position: relative;
 
     &::after {
       content: "";
       position: absolute;
-      left: - $left-p - 0.29em;
-      height: $he;
-      top: $top*2;
+      left: -1.35em;
+      height: 97.5%;
+      top: 3.5rem;
       width: 4px;
       background: $body-color;
       border-radius: $border-radius;
+      z-index:2;
+    }
+
+  }
+
+  .custom-text:last-of-type .card-body::after {
+    display: none;
+  }
+
+  .custom-text {
+    position: relative;
+    &::before {
+      content: "";
+      height: 100%;
+      width: 2.45em;
+      @extend .border-left;
+      background: $white;
+      position: absolute;
+      left: $left;
+      top: $top;
+
+
+    }
+
+    &:first-of-type::before {
+      @extend .border-top;
+    }
+
+    &:last-of-type::before {
+      @extend .border-bottom;
+      height:3.7em;
     }
   }
+
+  @include media-breakpoint-down(sm) {
+    .card-text::before, .card-text::after, .display-2::after, .display-2::before {
+      display: none;
+    }
+  }
+
 }
+
 
 // category
 #cms .page-content {
@@ -80,7 +110,7 @@ $he: 69%;
   @extend .border-left-0;
 
   .page-header {
-    border:unset;
+    border: unset;
     @extend .border-right;
     @extend .border-left;
 

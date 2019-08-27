@@ -49,22 +49,22 @@
   $sep: 50%;
 
   //effect hover
-  .card-img-top::after, .card-img-top::before {
-    @include effect-ab($sep, $white);
+  .link-img-wrapper::after, .link-img-wrapper::before {
+    @include effect-ab($sep, $white, false, .3s);
     opacity: 0;
   }
 
-  .card-img-top::before {
+  .link-img-wrapper::before {
     left: 0;
     transform: translateY($m);
   }
 
-  .card-img-top::after {
+  .link-img-wrapper::after {
     left: $sep;
     transform: translateY(-$m);
   }
 
-  .card-img-top:hover::after, .card-img-top:hover::before {
+  .link-img-wrapper:hover::after, .link-img-wrapper:hover::before {
     opacity: .79;
     transform: translateY(0);
   }
@@ -76,7 +76,6 @@
   position: relative;
   overflow: hidden;
 
-
   @include media-breakpoint-up(md) {
     min-height: 380px;
   }
@@ -85,6 +84,17 @@
   }
   @include media-breakpoint-up(xl) {
     min-height: 340px;
+  }
+
+  .link-img-wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
   }
 
   .li-d {
@@ -145,7 +155,7 @@
   margin-top: $spacer/2;
   padding: $spacer/4;
   color: #fff;
-  background: theme-color('primary');
+  background: $primary;
   text-transform: uppercase;
   font-weight: 600;
   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .2);
@@ -256,7 +266,7 @@
   }
 
   &.slick-current {
-    border: 2px solid theme-color('primary');
+    border: 2px solid $primary;
   }
 }
 
@@ -409,12 +419,34 @@
 
 .products-selection {
   margin: $spacer-bloc auto;
-
-
 }
 
 
-//product carac
-dt.name{
-  color:$primary;
+// product carac
+dt.name {
+  color: $primary;
 }
+
+// attachment
+.attachment-size {
+  font-weight: $font-weight-light;
+}
+
+.attachment-button {
+  border-width: $border-size-lg;
+
+  i{
+    margin-top: 2px;
+  }
+
+  &:hover {
+    i, span {
+      color: $primary;
+    }
+
+
+    background: transparent;
+    border-color:$primary;
+  }
+}
+

@@ -26,7 +26,7 @@
 <input id="dp_{$field->name|escape:'htmlall':'UTF-8'}"
        data-id="{$field->id|intval}"
        data-type="{$field->type|intval}"
-       class="dp_entry dp_input"
+       class="dp_entry dp_input form-control"
        type="text"
        data-name="{$field->name|escape:'htmlall':'UTF-8'}"
        data-label="{$field->label|escape:'htmlall':'UTF-8'}"

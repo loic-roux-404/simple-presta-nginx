@@ -38,8 +38,11 @@
 <ul id="dp_thumbnails_{$field->name|escape:'htmlall':'UTF-8'}" class="dp_thumbnails_list {if $field->settings->multiselect}dp_multiselect{/if}">
     {foreach from=$field->options item=thumbnails_option}
         <li class="{if $thumbnails_option->is_default}selected{/if} dp_thumb_{$thumbnails_option->id|intval}">
-            <a style="background-color: {$thumbnails_option->color|escape:'htmlall':'UTF-8'};" title="{$thumbnails_option->label|escape:'htmlall':'UTF-8'}" data-id="{$thumbnails_option->id|intval}">
-                <img src="{$thumbnails_option->getThumbUrl()|escape:'htmlall':'UTF-8'}" />
+            <a style="background-color: {$thumbnails_option->color|escape:'htmlall':'UTF-8'};"
+            title="{$thumbnails_option->label|escape:'htmlall':'UTF-8'}"
+            data-id="{$thumbnails_option->id|intval}"
+            class="dp-thumb-wrapper" style="background:unset;">
+                <img class="thumb" src="{$thumbnails_option->getThumbUrl()|escape:'htmlall':'UTF-8'}" />
             </a>
             <span>{$thumbnails_option->label|escape:'htmlall':'UTF-8'}</span>
         </li>

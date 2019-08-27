@@ -18,6 +18,7 @@ $gray-800: #696969;
 $darker: $gray-600;
 
 $body-color: $darker;
+$body-bg:$white;
 //borders
 $border-width: 1px;
 $border-color: $gray-400;
@@ -92,6 +93,7 @@ $enable-responsive-font-sizes: true;
 
 $box-shadow: 0px;
 $box-shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.04);
+$box-shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.14);
 
 // Navs
 $nav-tabs-border-width: 2px;

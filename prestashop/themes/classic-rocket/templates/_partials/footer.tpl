@@ -22,6 +22,8 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
+
+
 <div class="container">
   <div class="row text-center text-md-left">
     {block name='hook_footer_before'}

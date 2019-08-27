@@ -29,20 +29,29 @@
 {$hide_tooltip = !($has_image || $has_min_max || $has_description)}
 
 {if !$hide_tooltip}
-    <a tabindex="-1" href="#" data-id_field="{$field->id|intval}" class="dp_tooltip"></a>
+    <div class="d-table h-100">
+
+        <a tabindex="-1" href="#" data-id_field="{$field->id|intval}"
+           class="dp_tooltip d-table-cell align-middle"></a>
+    </div>
     <div class="dp_content dp_qtip dp_content_{$field->id|intval}">
-	    {if $has_image}
-	        <img src="{$field->getImageUrl()|escape:'htmlall':'UTF-8'}" alt=""><br>
-	    {/if}
-	    <span><strong>{$field->label|escape:'htmlall':'UTF-8'}</strong></span><br>
-	    {if $has_description}
-	        <p class="dp_desc_{$field->name|escape:'htmlall':'UTF-8'}">{$field->description|escape:'htmlall':'UTF-8'}</p>
-	    {/if}
-	    {if $has_min_max}
+        {if $has_image}
+            <img src="{$field->getImageUrl()|escape:'htmlall':'UTF-8'}" alt="">
+            <br>
+        {/if}
+        <span><strong>{$field->label|escape:'htmlall':'UTF-8'}</strong></span><br>
+        {if $has_description}
+            <p class="dp_desc_{$field->name|escape:'htmlall':'UTF-8'}">{$field->description|escape:'htmlall':'UTF-8'}</p>
+        {/if}
+        {if $has_min_max}
             {if $field->settings->min}
-		    <span>{l s='Min Length' mod='dynamicproduct'}:</span> {$field->settings->min|intval}<br>
+                <span>{l s='Min Length' mod='dynamicproduct'}:</span>
+                {$field->settings->min|intval}
+                <br>
             {/if}
-		    <span>{l s='Max Length' mod='dynamicproduct'}:</span> {$field->settings->max|intval}<br>
-	    {/if}
+            <span>{l s='Max Length' mod='dynamicproduct'}:</span>
+            {$field->settings->max|intval}
+            <br>
+        {/if}
     </div>
 {/if}

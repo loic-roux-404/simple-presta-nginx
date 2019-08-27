@@ -23,24 +23,35 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
+
+
 <div id="dp_{$field->name|escape:'htmlall':'UTF-8'}"
-     data-type="{$field->type|intval}"
-     data-id="{$field->id|intval}"
-     class="dp_entry dp_radio"
-     data-name="{$field->name|escape:'htmlall':'UTF-8'}"
-     data-label="{$field->label|escape:'htmlall':'UTF-8'}">
+    data-type="{$field->type|intval}"
+    data-id="{$field->id|intval}"
+    class="form-inline dp_entry"
+    data-name="{$field->name|escape:'htmlall':'UTF-8'}"
+    data-label="{$field->label|escape:'htmlall':'UTF-8'}">
+
     {foreach from=$field->options item=radio_option}
-        <label for="{$field->name|escape:'htmlall':'UTF-8'}_{$radio_option->id|intval}">
-        <input
-            type="radio"
-            id="{$field->name|escape:'htmlall':'UTF-8'}_{$radio_option->id|intval}"
-            name="{$field->name|escape:'htmlall':'UTF-8'}"
-            data-id="{$radio_option->id|intval}"
-            data-label="{$radio_option->label|escape:'htmlall':'UTF-8'}"
-            value="{$radio_option->value|escape:'htmlall':'UTF-8'}"
-            {if $radio_option->is_default}checked="checked"{/if}/>
-                <span class="dp_radio_label">{$radio_option->label|escape:'htmlall':'UTF-8'}</span>
-        </label>
-    {/foreach}
+        <div class="custom-control custom-radio mr-3">
+            <input type="radio" class="custom-control-input"
+                    id="{$field->name|escape:'htmlall':'UTF-8'}_{$radio_option->id|intval}"
+                    name="{$field->name|escape:'htmlall':'UTF-8'}"
+                    data-id="{$radio_option->id|intval}"
+                    data-label="{$radio_option->label|escape:'htmlall':'UTF-8'}"
+                    value="{$radio_option->value|escape:'htmlall':'UTF-8'}"
+                    {if $radio_option->is_default}checked="checked"{/if}/>
+
+            <label for="{$field->name|escape:'htmlall':'UTF-8'}_{$radio_option->id|intval}"
+                class="custom-control-label">
+                {$radio_option->label|escape:'htmlall':'UTF-8'}
+            </label>
+        </div>
+    {/foreach} 
+
 </div>
-{include file="../tooltip/tooltip.tpl"}
+ {include file="../tooltip/tooltip.tpl"}
+
+
+
+

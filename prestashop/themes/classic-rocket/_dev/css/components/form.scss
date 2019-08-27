@@ -15,7 +15,7 @@ form .btn-light {
   }
 
   form .btn-primary {
-    @extend .px-5
+    @extend .px-5;
   }
 }
 
@@ -31,14 +31,12 @@ form .btn-light {
     align-items: center;
     justify-content: center;
 
-
     @include media-breakpoint-up(lg) {
       justify-content: start;
       .custom-control {
         padding-left: 2.35rem;
       }
     }
-
 
     label {
       display: block;
@@ -47,8 +45,6 @@ form .btn-light {
   }
 
   .form-group:nth-child(3) {
-
-
     @include media-breakpoint-up(lg) {
       padding-left: 2.75rem;
 
@@ -56,12 +52,11 @@ form .btn-light {
         width: 106.2%;
       }
     }
-
   }
 }
 
-
-.register-form section .form-group:last-of-type, .js-customer-form section .form-group:last-of-type {
+.register-form section .form-group:last-of-type,
+.js-customer-form section .form-group:last-of-type {
   @extend .col-8;
   margin: 0 auto;
 }
@@ -71,15 +66,14 @@ form .btn-light {
 
   label,
   .label {
-
     small,
     .small {
       font-size: 0.75 * $font-size-base;
     }
   }
 
-
-  input[type="password"], input[name="password"] {
+  input[type="password"],
+  input[name="password"] {
     @extend .col-9;
     @extend .pr-0;
   }
@@ -94,7 +88,8 @@ form .btn-light {
     }
   }
 
-  input[type="password"] ~ .form-text, input[name="password"] ~ .form-text {
+  input[type="password"] ~ .form-text,
+  input[name="password"] ~ .form-text {
     width: 100%;
     @extend .py-2;
   }
@@ -106,10 +101,10 @@ form .form-group {
       font-weight: $font-weight-bolder;
     }
   }
-
 }
 
-.register-form .form-group:last-of-type label, form .form-group .custom-checkbox > label {
+.register-form .form-group:last-of-type label,
+form .form-group .custom-checkbox > label {
   font-weight: $font-weight-light;
 }
 
@@ -142,13 +137,11 @@ form .form-group {
 .form-footer {
   text-align: center;
   margin-top: $spacer;
-  padding: 0 1rem;
 }
 
-#checkout{
-
-  .btn{
-    width:100%;
+#checkout {
+  .btn {
+    width: 100%;
   }
 }
 
@@ -159,7 +152,10 @@ form .form-group {
 }
 
 //fix ugly focus on select and qty
-select:focus, .bootstrap-touchspin input, input[type="radio"], input[type="checkbox"] {
+select:focus,
+.bootstrap-touchspin input,
+input[type="radio"],
+input[type="checkbox"] {
   box-shadow: unset !important;
 }
 
@@ -203,9 +199,7 @@ select:focus, .bootstrap-touchspin input, input[type="radio"], input[type="check
   .btn-primary {
     width: 100%;
   }
-
 }
-
 
 //forms fix
 main > .notifications-container {
@@ -221,5 +215,248 @@ main > .notifications-container {
 .js-invalid-feedback-browser:empty {
   display: none;
 }
+/////////////////////////////
+//dynamic product styles\\\\\
+/////////////   /////////////
+//////////          /////////
+///////               ///////
+////                    /////
+//                         //
 
+$cell-p: 0.75rem;
 
+.dp_container {
+  @extend .row;
+  position: relative;
+
+  input,
+  select,
+  textarea {
+    @extend .form-control;
+    color: $body-color;
+    font-size: $font-size-base;
+  }
+
+  .ui-widget {
+    border-radius: unset !important;
+  }
+
+  .ui-widget-content {
+    @extend .border;
+  }
+
+  .ui-spinner-input {
+    margin: 0;
+  }
+
+  .dp_unit {
+    position: absolute;
+    left: 3.75em;
+    font-weight: 300;
+    font-size: $font-family-base;
+    line-height: 3;
+  }
+
+  .form-inline {
+    @extend .border;
+  }
+
+  .dp_tooltip,
+  .dp_colorpicker_handle {
+    background-repeat: no-repeat;
+    @extend .border-right;
+    @extend .border-top;
+    @extend .border-bottom;
+  }
+
+  $map_fields: 16;
+
+  @for $i from 0 through $map_fields {
+    @if $i < 14 or $i == 12 or $i == 16 {
+      .dp_container_type_#{$i} {
+        @extend .col-md-6;
+        @extend .py-1;
+      }
+    } @else {
+      .dp_container_type_#{$i} {
+        @extend .col-12;
+      }
+    }
+  }
+
+  .dp_field_container.dp_container_type_14 {
+    @extend .display-3;
+  }
+  .dp_field_container.dp_container_type_12 {
+    @extend .col-12;
+  }
+
+  .dp_input_container {
+    @extend .row;
+    @extend .m-0;
+
+    > .dp_tooltip,
+    .dp_colorpicker_handle {
+      @extend .col-2;
+    }
+
+    > .ui-widget,
+    > .border,
+    > input,
+    > select {
+      @extend .col;
+    }
+
+    select.form-control {
+      margin: 0;
+      height: 100%;
+      width: 100% !important;
+    }
+
+    input.form-control:focus {
+      box-shadow: unset;
+    }
+  }
+  //fixed value
+
+  .dp_fixed {
+    @extend .h4;
+    font-weight: 400;
+    height: 100%;
+    line-height: 2.5;
+    color: $primary;
+  }
+
+  //color
+
+  .dp_colorpicker_handle {
+    background-position: center;
+    height: 2.6em;
+  }
+
+  .dp_tooltip {
+    text-align: center;
+    background: unset;
+    height: 100%;
+    padding: $cell-p;
+
+    &::after {
+      content: "info";
+      color: $gray-500;
+      margin-top: 1px;
+      @extend .material-icons-outline;
+    }
+  }
+}
+
+.ui-table-form > * {
+  display: table-cell;
+  vertical-align: middle;
+  padding: $cell-p 0;
+}
+.ui-table-form .dp_tooltip {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.dp_input_container .dp_slider_value {
+  display: table-cell;
+}
+//tooltip design
+
+#product {
+  .qtip-bootstrap {
+    border: unset;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  .qtip-bootstrap,
+  .qtip-rounded,
+  .qtip-tipsy {
+    border-radius: 5px;
+  }
+
+  .qtip-default {
+    border: unset;
+  }
+}
+
+// spinner design
+.ui-spinner .ui-icon {
+  background-image: unset;
+  position: static;
+  left: unset;
+  top: unset;
+}
+
+.ui-state-default,
+.ui-widget.ui-widget-content .ui-state-default {
+  background: unset;
+}
+
+.ui-state-default .ui-icon {
+  background-image: unset;
+}
+
+.ui-spinner {
+  .ui-widget-content .ui-state-default {
+    background: transparent;
+    border: unset;
+  }
+
+  .ui-button-text-only .ui-button-text {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background: unset;
+  }
+
+  .ui-spinner-button {
+    width: 30px;
+    &:first-of-type {
+      @extend .border-bottom;
+    }
+  }
+}
+
+.ui-spinner .ui-icon {
+  position: absolute;
+  margin-top: -8px;
+  top:50%;
+  left:0.3em !important;
+}
+
+// slider design
+
+.control-wrapper {
+  position: relative;
+  .dp_slider_control {
+    //@include abs-equal;
+    background: $body-color;
+    @extend .border-0;
+    margin-bottom: 0.35rem;
+
+    .ui-slider-handle {
+      background: $white;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      border-width: $border-size-lg;
+      border-color: $body-color;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  .ui-slider-horizontal {
+    height: 4px;
+  }
+}
+
+// thumbs
+
+.dp-thumb-wrapper {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+}

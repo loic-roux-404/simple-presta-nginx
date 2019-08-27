@@ -23,7 +23,7 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 <div id="js-product-list">
-    <div class="products">
+    <div class="products justify-content-center">
         {foreach from=$listing.products item="product"}
             {block name='product_miniature'}
                 {include file='catalog/_partials/miniatures/product.tpl' product=$product}
@@ -31,14 +31,12 @@
         {/foreach}
     </div>
 
-    {block name='pagination'}
-        {include file='_partials/pagination.tpl' pagination=$listing.pagination}
-    {/block}
+{*    {block name='pagination'}*}
+{*        {include file='_partials/pagination.tpl' pagination=$listing.pagination}*}
+{*    {/block}*}
+{*    {include file='../../top.tpl'}*}
 
-    <div class="d-md-none text-center up">
-        <a href="#header" class="btn btn-secondary"
-           title="{l s='Back to top' d='Shop.Theme.Actions'}">
-            <i class="material-icons">arrow_upward</i>
-        </a>
-    </div>
 </div>
+
+
+

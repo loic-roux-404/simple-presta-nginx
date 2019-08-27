@@ -4,10 +4,7 @@
 $material-font-size: $font-size-base*$line-height-base;
 $material-icons-font-path: './_modules/material-icons/fonts/';
 
-
-
 @import '../_modules/material-icons/material-icons';
-
 
 //fix height
 .material-icons + span {

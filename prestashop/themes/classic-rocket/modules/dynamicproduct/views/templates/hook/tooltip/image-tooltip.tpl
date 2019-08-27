@@ -30,20 +30,32 @@
 {$hide_tooltip = !($has_image || $has_max_size || $has_min_width || $has_min_height)}
 
 {if !$hide_tooltip}
-    <a tabindex="-1" href="#" data-id_field="{$field->id|intval}" class="dp_tooltip"></a>
-    <div class="dp_content dp_qtip dp_content_{$field->id|intval}">
-	    {if $has_image}
-	    <img src="{$field->getImageUrl()|escape:'htmlall':'UTF-8'}" alt=""><br>
-	    {/if}
-	    <span><strong>{$field->label|escape:'htmlall':'UTF-8'}</strong></span><br>
-	    {if $has_max_size}
-		    <span>{l s='Max Size' mod='dynamicproduct'}:</span> {$field->settings->max_size|floatval} {l s='MB' mod='dynamicproduct'}<br>
-	    {/if}
-	    {if $has_min_width}
-		    <span>{l s='Min width' mod='dynamicproduct'}:</span> {$field->settings->min_width|floatval} {l s='px' mod='dynamicproduct'}<br>
-	    {/if}
-	    {if $has_min_height}
-		    <span>{l s='Min height' mod='dynamicproduct'}:</span> {$field->settings->min_height|floatval} {l s='px' mod='dynamicproduct'}<br>
-	    {/if}
+    <div class="d-table h-100">
+
+        <a tabindex="-1" href="#" data-id_field="{$field->id|intval}"
+           class="dp_tooltip d-table-cell align-middle"></a>
+        <div class="dp_content dp_qtip dp_content_{$field->id|intval}">
+            {if $has_image}
+                <img src="{$field->getImageUrl()|escape:'htmlall':'UTF-8'}"
+                     alt="">
+                <br>
+            {/if}
+            <span><strong>{$field->label|escape:'htmlall':'UTF-8'}</strong></span><br>
+            {if $has_max_size}
+                <span>{l s='Max Size' mod='dynamicproduct'}:</span>
+                {$field->settings->max_size|floatval} {l s='MB' mod='dynamicproduct'}
+                <br>
+            {/if}
+            {if $has_min_width}
+                <span>{l s='Min width' mod='dynamicproduct'}:</span>
+                {$field->settings->min_width|floatval} {l s='px' mod='dynamicproduct'}
+                <br>
+            {/if}
+            {if $has_min_height}
+                <span>{l s='Min height' mod='dynamicproduct'}:</span>
+                {$field->settings->min_height|floatval} {l s='px' mod='dynamicproduct'}
+                <br>
+            {/if}
+        </div>
     </div>
 {/if}

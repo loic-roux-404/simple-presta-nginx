@@ -29,6 +29,7 @@
 {$hide_tooltip = !($has_image || $has_min_max || $has_description)}
 
 {if !$hide_tooltip}
+
     <a tabindex="-1" href="#" data-id_field="{$field->id|intval}" class="dp_tooltip"></a>
     <div class="dp_content dp_qtip dp_content_{$field->id|intval}">
 	    {if $has_image}

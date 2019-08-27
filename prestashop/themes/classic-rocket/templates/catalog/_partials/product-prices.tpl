@@ -111,9 +111,9 @@
 
     </div>
 {else}
-    <div class="no-logged-prices d-table h-100">
+    <div class="no-logged-prices d-table h-100 w-100 no-lged">
         <a href="{$urls.pages.authentication}" class="d-table-cell align-middle primary-hover font-weight-bold">
-            {l s='Log in to see prices' d='Shop.Theme.Catalog'}
+            {l s='Log in to see prices' d='Shop.Theme.Customeraccount'}
         </a>
     </div>
 {/if}

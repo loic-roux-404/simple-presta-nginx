@@ -27,43 +27,48 @@
     <article class="product-miniature js-product-miniature mb-3"
              data-id-product="{$product.id_product}"
              data-id-product-attribute="{$product.id_product_attribute}">
+
         <div class="card card-product">
 
-            <div class="card-img-top">
-                <a href="{$product.url}" class="li-d"
-                   title="{l s='See product' d='Shop.Theme.Catalog'}">{l s='See product' d='Shop.Theme.Catalog'}</a>
+            <div class="card-img-top border-left ">
+                <a href="{$product.url}" class="link-img-wrapper"
+                   title="{l s='Customize product' d='Shop.Theme.Catalog'}">
 
-                {block name='product_thumbnail'}
-                    <a href="{$product.url}"
-                       class="thumbnail product-thumbnail rc d-block">
-                        {if $product.cover}
-                            <img
-                                    data-src="{$product.cover.bySize.home_default.url}"
-                                    alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
-                                    title="{$product.name|truncate:30:'...'}"
-                                    data-full-size-image-url="{$product.cover.large.url}"
-                                    class="lazyload"
-                            >
-                        {elseif isset($urls.no_picture_image)}
-                            <img src="{$urls.no_picture_image.bySize.home_default.url}">
-                        {else}
-                            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
-                        {/if}
-                    </a>
-                {/block}
-                {*                <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} d-none d-md-block">*}
-                {*                                        {block name='quick_view'}*}
-                {*                                            <span class="quick-view" data-link-action="quickview">*}
-                {*                                          <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}*}
-                {*                                      </span>*}
-                {*                                        {/block}*}
+                    <span class="li-d">{l s='Customize product' d='Shop.Theme.Catalog'}</span>
 
-                {*                    {block name='product_variants'}*}
-                {*                        {if $product.main_variants}*}
-                {*                            {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}*}
-                {*                        {/if}*}
-                {*                    {/block}*}
-                {*                </div>*}
+                    {block name='product_thumbnail'}
+                        <div href="{$product.url}"
+                             class="thumbnail product-thumbnail rc d-block">
+                            {if $product.cover}
+                                <img
+                                        data-src="{$product.cover.bySize.home_default.url}"
+                                        alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
+                                        title="{$product.name|truncate:30:'...'}"
+                                        data-full-size-image-url="{$product.cover.large.url}"
+                                        class="lazyload"
+                                >
+                            {elseif isset($urls.no_picture_image)}
+                                <img src="{$urls.no_picture_image.bySize.home_default.url}">
+                            {else}
+                                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==">
+                            {/if}
+                        </div>
+                    {/block}
+                    {*                <div class="highlighted-informations text-center p-2{if !$product.main_variants} no-variants{/if} d-none d-md-block">*}
+                    {*                                        {block name='quick_view'}*}
+                    {*                                            <span class="quick-view" data-link-action="quickview">*}
+                    {*                                          <i class="material-icons search">&#xE8B6;</i> {l s='Quick view' d='Shop.Theme.Actions'}*}
+                    {*                                      </span>*}
+                    {*                                        {/block}*}
+
+                    {*                    {block name='product_variants'}*}
+                    {*                        {if $product.main_variants}*}
+                    {*                            {include file='catalog/_partials/variant-links.tpl' variants=$product.main_variants}*}
+                    {*                        {/if}*}
+                    {*                    {/block}*}
+                    {*                </div>*}
+
+                </a>
             </div>
             {* end card-img-top*}
 

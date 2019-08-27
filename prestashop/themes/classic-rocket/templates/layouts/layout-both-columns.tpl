@@ -25,132 +25,144 @@
 <!doctype html>
 <html lang="{$language.iso_code}">
 
-  <head>
+<head>
     {block name='head'}
-      {include file='_partials/head.tpl'}
+        {include file='_partials/head.tpl'}
     {/block}
-  </head>
+</head>
 
-  <body id="{$page.page_name}" class="{$page.body_classes|classnames}">
+<body id="{$page.page_name}" class="{$page.body_classes|classnames}">
 
-    {block name='hook_after_body_opening_tag'}
-      {hook h='displayAfterBodyOpeningTag'}
-    {/block}
+{block name='hook_after_body_opening_tag'}
+    {hook h='displayAfterBodyOpeningTag'}
+{/block}
 
-    <main>
-      {block name='product_activation'}
+<main>
+    {block name='product_activation'}
         {include file='catalog/_partials/product-activation.tpl'}
-      {/block}
-      
-      <header id="header" class="l-header bg-white">
+    {/block}
+
+    <header id="header" class="l-header bg-white">
         {block name='header'}
-          {include file='_partials/header.tpl'}
+            {include file='_partials/header.tpl'}
         {/block}
-      </header>
+    </header>
 
-      {block name='notifications'}
+    {block name='notifications'}
         {include file='_partials/notifications.tpl'}
-      {/block}
-        {block name='wrapper'}
+    {/block}
+    {block name='wrapper'}
         <div class="caroussel-wrapper">
-          {if $page.page_name == 'index'}
-            {widget name='ps_imageslider' hook="displayHome"}
-          {/if}
+            {if $page.page_name == 'index'}
+                {widget name='ps_imageslider' hook="displayHome"}
+            {/if}
         </div>
-        <section id="wrapper" class="{block name='layoutWrapperClass'}l-wrapper{/block}">
+        <section id="wrapper"
+                 class="{block name='layoutWrapperClass'}l-wrapper{/block}">
 
-        {hook h="displayWrapperTop"}
-          {block name='breadcrumb'}
-            {include file='_partials/breadcrumb.tpl'}
-          {/block}
+            {hook h="displayWrapperTop"}
+            {block name='breadcrumb'}
+                {include file='_partials/breadcrumb.tpl'}
+            {/block}
             <div class="row">
-          {block name="left_column"}
-            <div id="left-column" class="col-12 col-md-3 left-column">
-              {if $page.page_name == 'product'}
-                {hook h='displayLeftColumnProduct'}
-              {else}
-                {hook h="displayLeftColumn"}
-              {/if}
-            </div>
-          {/block}
+                {block name="left_column"}
+                    <div id="left-column" class="col-12 col-md-3 left-column">
+                        {if $page.page_name == 'product'}
+                            {hook h='displayLeftColumnProduct'}
+                        {else}
+                            {hook h="displayLeftColumn"}
+                        {/if}
+                    </div>
+                {/block}
 
-          {block name="content_wrapper"}
-            <div id="content-wrapper" class="{block name='contentWrapperClass'}left-column right-column col-md-6{/block}">
-              {hook h="displayContentWrapperTop"}
-              {block name="content"}
-                <p>Hello world! This is HTML5 Boilerplate.</p>
-              {/block}
-              {hook h="displayContentWrapperBottom"}
-            </div>
-          {/block}
+                {block name="content_wrapper"}
+                    <div id="content-wrapper"
+                         class="{block name='contentWrapperClass'}left-column right-column col-md-6{/block}">
+                        {hook h="displayContentWrapperTop"}
+                        {block name="content"}
+                            <p>Hello world! This is HTML5 Boilerplate.</p>
+                        {/block}
+                        {hook h="displayContentWrapperBottom"}
+                    </div>
+                {/block}
 
-          {block name="right_column"}
-            <div id="right-column" class="col-12 col-md-3 right-column">
-              {if $page.page_name == 'product'}
-                {hook h='displayRightColumnProduct'}
-              {else}
-                {hook h="displayRightColumn"}
-              {/if}
+                {block name="right_column"}
+                    <div id="right-column" class="col-12 col-md-3 right-column">
+                        {if $page.page_name == 'product'}
+                            {hook h='displayRightColumnProduct'}
+                        {else}
+                            {hook h="displayRightColumn"}
+                        {/if}
+                    </div>
+                {/block}
             </div>
-          {/block}
-        </div>
-        {hook h="displayWrapperBottom"}
-      </section>
-        {/block}
+            {hook h="displayWrapperBottom"}
+        </section>
+    {/block}
 
-      <footer id="footer" class="l-footer">
+    {block name="to_top"}
+        {include file='top.tpl'}
+    {/block}
+
+    <footer id="footer" class="l-footer">
         {block name="footer"}
-          {include file="_partials/footer.tpl"}
+            {include file="_partials/footer.tpl"}
         {/block}
-      </footer>
+    </footer>
 
-    </main>
-    {block name='offcanvas_madals'}
-        {* offcanvas search filter *}
-        <div class="modal fade" id="offcanvas_search_filter" tabindex="-1" role="dialog" data-modal-hide-mobile>
-            <div class="modal-dialog modal-dialog__offcanvas modal-dialog__offcanvas--right" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="{l s='Close' d='Shop.Theme.Global'}">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="_mobile_search_filters_wrapper"></div>
+</main>
+{block name='offcanvas_madals'}
+    {* offcanvas search filter *}
+    <div class="modal fade" id="offcanvas_search_filter" tabindex="-1"
+         role="dialog" data-modal-hide-mobile>
+        <div class="modal-dialog modal-dialog__offcanvas modal-dialog__offcanvas--right"
+             role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="{l s='Close' d='Shop.Theme.Global'}">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="_mobile_search_filters_wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {* end search filter *}
+    {* offcanvas menu *}
+    <div class="modal fade p-0" id="mobile_top_menu_wrapper" tabindex="-1"
+         role="dialog" data-modal-hide-mobile>
+        <div class="modal-dialog modal-dialog__offcanvas w-100" role="document">
+            <div class="modal-content">
+                <div class="modal-header align-items-center">
+                    <button type="button" class="close m-0" data-dismiss="modal"
+                            aria-label="{l s='Close' d='Shop.Theme.Global'}">
+                        <span class="material-icons"
+                              aria-hidden="true">close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="js-top-menu mobile" id="_mobile_top_menu"></div>
+                    <div class="js-top-menu-bottom">
+                        <div id="_mobile_currency_selector"></div>
+                        <div id="_mobile_language_selector"></div>
+                        <div id="_mobile_contact_link"></div>
                     </div>
                 </div>
             </div>
         </div>
-        {* end search filter *}
-        {* offcanvas menu *}
-        <div class="modal fade p-0" id="mobile_top_menu_wrapper" tabindex="-1" role="dialog" data-modal-hide-mobile>
-            <div class="modal-dialog modal-dialog__offcanvas w-100" role="document">
-                <div class="modal-content">
-                    <div class="modal-header align-items-center">
-                        <button type="button" class="close m-0" data-dismiss="modal" aria-label="{l s='Close' d='Shop.Theme.Global'}">
-                            <span class="material-icons" aria-hidden="true">close</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="js-top-menu mobile" id="_mobile_top_menu"></div>
-                        <div class="js-top-menu-bottom">
-                            <div id="_mobile_currency_selector"></div>
-                            <div id="_mobile_language_selector"></div>
-                            <div id="_mobile_contact_link"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {* end offcanvas menu *}
-    {/block}
-    {block name='javascript_bottom'}
-      {include file="_partials/javascript.tpl" javascript=$javascript.bottom}
-    {/block}
+    </div>
+    {* end offcanvas menu *}
+{/block}
+{block name='javascript_bottom'}
+    {include file="_partials/javascript.tpl" javascript=$javascript.bottom}
+{/block}
 
-    {block name='hook_before_body_closing_tag'}
-      {hook h='displayBeforeBodyClosingTag'}
-    {/block}
-  </body>
+{block name='hook_before_body_closing_tag'}
+    {hook h='displayBeforeBodyClosingTag'}
+{/block}
+</body>
 
 </html>

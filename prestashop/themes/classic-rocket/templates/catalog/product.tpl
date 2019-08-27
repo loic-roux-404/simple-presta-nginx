@@ -29,7 +29,8 @@
 {/block}
 
 {block name='content'}
-    <section id="main" class="product-section bg-white border">
+    <section id="main"
+             class="product-section bg-white border-top border-right border-left">
         <meta itemprop="url" content="{$product.url}">
 
         <div class="row justify-content-center">
@@ -50,8 +51,7 @@
                                      class="ml-4 mr-4 mr-md-0 text-justify text-md-left">{$product.description_short nofilter}</div>
                             {/block}
                         </div>
-                        <div class="col-md-3 prc-desc">
-
+                        <div class="{if $customer.is_logged} col-md-3 {else} col-md-12 text-center {/if}prc-desc">
                             {block name='product_prices'}
                                 {include file='catalog/_partials/product-prices.tpl'}
                             {/block}
@@ -144,8 +144,8 @@
 
                     <div class="row ">
 
-                        <div class="col-lg-6 pr-lg-0">
-                            <div class="border-top border-right">
+                        <div class="col-lg-6 pr-lg-0 border-right">
+                            <div class="border-top border-bottom">
                                 {block name='hook_display_reassurance'}
                                     {hook h='displayReassurance'}
                                 {/block}
@@ -153,104 +153,115 @@
                         </div>
 
 
-                        <div class="col-lg-6 pl-lg-0 ">
+                        <div class="col-lg-6 pl-lg-0">
+                            <div class="border-bottom h-100">
 
-                            {block name='product_tabs'}
-                            <div class="tabs product-tabs card card-block border-top">
-                                <ul class="nav nav-tabs" role="tablist">
-                                    {if $product.description}
-                                        <li class="nav-item">
-                                            <a
-                                                    class="nav-link{if $product.description} active{/if}"
-                                                    data-toggle="tab"
-                                                    href="#description"
-                                                    role="tab"
-                                                    aria-controls="description"
-                                                    {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
-                                        </li>
-                                    {/if}
-                                    <li class="nav-item">
-                                        <a
-                                                class="nav-link{if !$product.description} active{/if}"
-                                                data-toggle="tab"
-                                                href="#product-details"
-                                                role="tab"
-                                                aria-controls="product-details"
-                                                {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
-                                    </li>
-                                    {if $product.attachments}
-                                        <li class="nav-item">
-                                            <a
-                                                    class="nav-link"
-                                                    data-toggle="tab"
-                                                    href="#attachments"
-                                                    role="tab"
-                                                    aria-controls="attachments">{l s='Attachments' d='Shop.Theme.Catalog'}</a>
-                                        </li>
-                                    {/if}
-                                    {foreach from=$product.extraContent item=extra key=extraKey}
-                                        <li class="nav-item">
-                                            <a
-                                                    class="nav-link"
-                                                    data-toggle="tab"
-                                                    href="#extra-{$extraKey}"
-                                                    role="tab"
-                                                    aria-controls="extra-{$extraKey}">{$extra.title}</a>
-                                        </li>
-                                    {/foreach}
-                                </ul>
-
-                                <div class="tab-content" id="tab-content">
-                                    <div class="tab-pane fade{if $product.description} show active{/if}"
-                                         id="description" role="tabpanel">
-                                        {block name='product_description'}
-                                            <div class="product-description">{$product.description nofilter}</div>
-                                        {/block}
-                                    </div>
-
-                                    {block name='product_details'}
-                                        {include file='catalog/_partials/product-details.tpl'}
-                                    {/block}
-
-                                    {block name='product_attachments'}
-                                        {if $product.attachments}
-                                            <div class="tab-pane fade"
-                                                 id="attachments"
-                                                 role="tabpanel">
-                                                <section
-                                                        class="product-attachments">
-                                                    <p class="h4 text-uppercase">{l s='Download' d='Shop.Theme.Actions'}</p>
-                                                    {foreach from=$product.attachments item=attachment}
-                                                        <div class="attachment">
-                                                            <a href="{url entity='attachment' params=['id_attachment' => $attachment.id_attachment]}">{$attachment.name}</a>
-                                                            <p class="small">{$attachment.description}</p
-                                                            <a href="{url entity='attachment' params=['id_attachment' => $attachment.id_attachment]}">
-                                                                {l s='Download' d='Shop.Theme.Actions'}
-                                                                ({$attachment.file_size_formatted}
-                                                                )
-                                                            </a>
-                                                        </div>
-                                                    {/foreach}
-                                                </section>
-                                            </div>
+                                {block name='product_tabs'}
+                                <div class="tabs product-tabs card card-block border-top ">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        {if $product.description}
+                                            <li class="nav-item">
+                                                <a
+                                                        class="nav-link{if $product.description} active{/if}"
+                                                        data-toggle="tab"
+                                                        href="#description"
+                                                        role="tab"
+                                                        aria-controls="description"
+                                                        {if $product.description} aria-selected="true"{/if}>{l s='Description' d='Shop.Theme.Catalog'}</a>
+                                            </li>
                                         {/if}
-                                    {/block}
+                                        <li class="nav-item">
+                                            <a
+                                                    class="nav-link{if !$product.description} active{/if}"
+                                                    data-toggle="tab"
+                                                    href="#product-details"
+                                                    role="tab"
+                                                    aria-controls="product-details"
+                                                    {if !$product.description} aria-selected="true"{/if}>{l s='Product Details' d='Shop.Theme.Catalog'}</a>
+                                        </li>
+                                        {if $product.attachments}
+                                            <li class="nav-item">
+                                                <a
+                                                        class="nav-link"
+                                                        data-toggle="tab"
+                                                        href="#attachments"
+                                                        role="tab"
+                                                        aria-controls="attachments">{l s='Attachments' d='Shop.Theme.Catalog'}</a>
+                                            </li>
+                                        {/if}
+                                        {foreach from=$product.extraContent item=extra key=extraKey}
+                                            <li class="nav-item">
+                                                <a
+                                                        class="nav-link"
+                                                        data-toggle="tab"
+                                                        href="#extra-{$extraKey}"
+                                                        role="tab"
+                                                        aria-controls="extra-{$extraKey}">{$extra.title}</a>
+                                            </li>
+                                        {/foreach}
+                                    </ul>
 
-                                    {foreach from=$product.extraContent item=extra key=extraKey}
-                                    <div class="tab-pane fade {$extra.attr.class}"
-                                         id="extra-{$extraKey}"
-                                         role="tabpanel" {foreach $extra.attr as $key => $val} {$key}="{$val}"{/foreach}
-                                    >
-                                    {$extra.content nofilter}
+                                    <div class="tab-content" id="tab-content">
+                                        <div class="tab-pane fade{if $product.description} show active{/if}"
+                                             id="description" role="tabpanel">
+                                            {block name='product_description'}
+                                                <div class="product-description">{$product.description nofilter}</div>
+                                            {/block}
+                                        </div>
+
+                                        {block name='product_details'}
+                                            {include file='catalog/_partials/product-details.tpl'}
+                                        {/block}
+
+
+                                        {block name='product_attachments'}
+                                            {if $product.attachments}
+                                                <div class="tab-pane fade"
+                                                     id="attachments"
+                                                     role="tabpanel">
+                                                    <section
+                                                            class="product-attachments">
+                                                        {* <p class="h4 text-uppercase">{l s='Download' d='Shop.Theme.Actions'}</p>*}
+
+
+                                                        {assign var=tmp value=1}
+
+                                                        {foreach from=$product.attachments item=attachment key=i}
+                                                            <div class="attachment pb-3{if $i > $tmp}border-bottom pt-3{/if}">
+                                                                <p class="h5 font-weight-bold"
+                                                                   href="{url entity='attachment' params=['id_attachment' => $attachment.id_attachment]}">{$attachment.name}</p>
+                                                                <p class="small">{$attachment.description}</p>
+                                                                <a class="btn btn-primary attachment-button"
+                                                                    title="{l s='Download' d='Shop.Theme.Actions'}"
+                                                                   href="{url entity='attachment' params=['id_attachment' => $attachment.id_attachment]}">
+                                                                    <i class="material-icons pl-2 pr-3">arrow_downward</i>
+                                                                    <span class="attachment-size">({$attachment.file_size_formatted}
+                                                                )</span>
+                                                                </a>
+                                                            </div>
+                                                            {assign var=tmp value=$tmp+1}
+
+                                                        {/foreach}
+                                                    </section>
+                                                </div>
+                                            {/if}
+                                        {/block}
+
+                                        {foreach from=$product.extraContent item=extra key=extraKey}
+                                        <div class="tab-pane fade {$extra.attr.class}"
+                                             id="extra-{$extraKey}"
+                                             role="tabpanel" {foreach $extra.attr as $key => $val} {$key}="{$val}"{/foreach}
+                                        >
+                                        {$extra.content nofilter}
+                                    </div>
+                                    {/foreach}
                                 </div>
-                                {/foreach}
                             </div>
                         </div>
                     </div>
+                    {/block}
                 </div>
-                {/block}
             </div>
-        </div>
         </div>
 
         {block name='product_accessories'}

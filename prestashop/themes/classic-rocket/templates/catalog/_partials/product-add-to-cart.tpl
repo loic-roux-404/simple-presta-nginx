@@ -26,8 +26,8 @@
     {if !$configuration.is_catalog}
 
         {block name='product_quantity'}
-            <div class="product-quantity row align-items-center no-gutters">
-                <div class="col-6 pr-3">
+            <div class="product-quantity row align-items-center justify-content-center  justify-content-md-left no-gutters">
+                <div class="col-sm-6 pr-md-3 mb-3 my-md-0">
                     <div class="d-table border w-100">
                         <label for="quantity_wanted"
                                class="d-table-cell align-middle shadow-none px-3 border-right">{l s='Quantity' d='Shop.Theme.Catalog'}</label>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="add col-6 pl-3">
+                <div class="add col-sm-6 pl-md-3">
                     <button
                             class="btn btn-primary add-to-cart btn btn-block btn-add-to-cart js-add-to-cart"
                             data-button-action="add-to-cart"

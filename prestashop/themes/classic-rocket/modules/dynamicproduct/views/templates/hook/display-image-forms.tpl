@@ -29,7 +29,7 @@
             <form action="{$dp_uploader|escape:'htmlall':'UTF-8'}"
                   data-id_field="{$field->id|intval}"
                   method="post"
-                  class="dp_uploader dp_uploader_{$field->id|intval}"
+                  class="input-group dp_uploader_{$field->id|intval}"
                   enctype="multipart/form-data"
                   target="dp_iframe_{$field->id|intval}">
                 <input type="hidden" name="max" value="{$field->settings->max_size|floatval}">
@@ -38,10 +38,13 @@
                 <input type="hidden" name="ajax" value="1">
                 <input type="hidden" name="action" value="upload_image">
                 <input type="hidden" name="id_field" value="{$field->id|intval}">
-                <div class="dp_file_div" data-id_field="{$field->id|intval}">
-                    <input type="file" name="dp_file" class="dp_file_input dp_file_input_{$field->id|intval}" style="opacity: 0">
+                <div class="custom-file" data-id_field="{$field->id|intval}">
+                    <input type="file" name="dp_file" class="custom-file-input dp_file_input_{$field->id|intval}" style="opacity: 0">
                 </div>
-                <input type="submit" name="dp_image_upload" value="upload">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="">{l s="Upload" mod='dynamicproduct'}</span>
+                </div>
+                <input type="submit" name="btn btn-light dp_image_upload" value="upload">
             </form>
             <iframe id="dp_iframe_{$field->id|intval}" name="dp_iframe_{$field->id|intval}"></iframe>
         {/foreach}

@@ -13,12 +13,14 @@ $bg-spacer:5em;
 
 // main layout
 $header-bg: $white;
-$footer-bg: $darker;
+$footer-bg: $white;
+$footer-color:$darker;
 $wrapper-bg: $bg-dark;
 $active-item:$primary;
 
 //slider background
-$slider-bg:$darker;
+$slider-bg:$white;
+$slider-color:$darker;
 
 //for svg background
 $bg-offset: 20vh;

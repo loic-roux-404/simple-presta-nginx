@@ -23,16 +23,15 @@
 *  International Registered Trademark & Property of PrestaShop SA
 *}
 
-<p class="checkbox">
-    <label for="dp_{$field->name|escape:'htmlall':'UTF-8'}">
-        <input id="dp_{$field->name|escape:'htmlall':'UTF-8'}"
-               data-id="{$field->id|intval}"
-               data-type="{$field->type|intval}"
-               class="form-control dp_entry dp_checkbox"
-               type="checkbox"
-               data-name="{$field->name|escape:'htmlall':'UTF-8'}"
-               {if $field->init}checked="checked"{/if}>
-        {$field->label|escape:'htmlall':'UTF-8'}
-    </label>
-</p>
+
+
+<div class="custom-control custom-checkbox">
+                        <input  type="checkbox" class="custom-control-input"
+                            id="dp_{$field->name|escape:'htmlall':'UTF-8'}"
+                            data-id="{$field->id|intval}"
+                            data-type="{$field->type|intval}"
+                            data-name="{$field->name|escape:'htmlall':'UTF-8'}">
+                        <label class="custom-control-label" for="dp_{$field->name|escape:'htmlall':'UTF-8'}">{$field->label|escape:'htmlall':'UTF-8'}</label>
+                    </div>
+
 {include file="../tooltip/tooltip.tpl"}

@@ -13,7 +13,7 @@
         }
       }
 
-      border: none;
+      //border: none;
       padding: 10px;
       min-width: 255px;
       color: $gray;
@@ -56,7 +56,7 @@
 }
 
 //mixin two blocs effect
-@mixin effect-ab($w,$color:$primary,$box-shadow:false) {
+@mixin effect-ab($w,$color:$primary,$box-shadow:false,$d:.4s) {
   content: "";
   position: absolute;
   top: 0;
