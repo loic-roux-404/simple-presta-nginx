@@ -6,6 +6,7 @@
 
 run the install script  with :
 `./i.sh`
+> Modify if you need
 
 A [prestashop/](prestashop) folder may appear
 
@@ -21,7 +22,7 @@ Database host : `mysql`
 Database name : `foo`
 Database user : `foo`
 Database pass : `bar`
-If you already have database tables, refer to [Last section](#-4.-existing-db)
+If you already have database tables, refer to [Last section](#-5.-existing-db)
 
 #### Close Prestashop install tab 
 
@@ -32,7 +33,13 @@ Remove install folder and rename back office
 `./after_install.sh`
 
 ### 4. Developp
-`cd prestashop/themes/theme-dev/dev`<br>
+
+To devellop your theme it's recommended to use [classic rocket](/classic-rocket.zip)
+
+Make the install whithin back office at `appearance > theme`section and import zip file
+
+##### Start :
+`cd prestashop/themes/classic-rocket/_dev`
 - Install dependencies
 `npm install`
 - Scss :
@@ -44,6 +51,8 @@ Remove install folder and rename back office
 ## Useful :
 - [localhost:80](http://localhost) to see your website
 - [localhost:9010](http://localhost:9010) for phpmyadmin
+- [Back office link : `/admin-dev` ](http://localhost:80/admin-dev)
+
 
 ##### Manage containers
 Stop with `docker-compose stop` and restart with `docker-compose start`

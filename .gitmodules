@@ -1,6 +1,0 @@
-[submodule "themes/classic-rocket"]
-	path = themes/classic-rocket
-	url = https://github.com/loic-roux-404/itib-theme.git
-[submodule "prestashop/themes/classic-rocket/_dev/prestashop/themes/classic-rocket"]
-	path = prestashop/themes/classic-rocket/_dev/prestashop/themes/classic-rocket
-	url = https://github.com/loic-roux-404/itib-theme.git

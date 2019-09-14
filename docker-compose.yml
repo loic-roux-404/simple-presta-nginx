@@ -1,43 +1,33 @@
 version: '2'
 
 services:
-
     site:
-        build: services/nginx
+        build: services/alp-nginx-fpm
         ports:
             - "80:80"
             - "443:443"
-        restart: always
-        volumes:
-            - ./prestashop:/html/:rw,cached
-        networks:
-            - front
-
-    php-fpm:
-        build: services/php-fpm
-        ports:
-            - "9000:9000"
         environment:
             DATABASE_URL: mysql://foo:bar@mysql:3306/foo
             DATABASE_HOST: 127.0.0.1
         restart: always
         volumes:
-            - ./prestashop:/html/:rw,cached
-            - ./services/php-fpm/custom-php.ini:/usr/local/etc/php/conf.d/custom.ini
+            - ./prestashop:/var/www/html/:rw,cached
         networks:
             - front
             - back
 
     mysql:
-        image: mysql:5.7
+        image: sameersbn/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: admin
-            MYSQL_DATABASE: foo
-            MYSQL_USER: foo
-            MYSQL_PASSWORD: bar
+            - DB_USER=foo
+            - DB_PASS=bar
+            - DB_NAME=foo
+            - DB_REMOTE_ROOT_NAME=root
+            - DB_REMOTE_ROOT_PASS=bar
+            - MYSQL_CHARSET=utf8
+            - MYSQL_COLLATION=utf8_unicode_ci
         volumes:
-            - mysql_data:/var/lib/mysql:cached
-            - ./services/mysql/utf8mb4.cnf:/etc/mysql/conf.d/utf8mb4.cnf
+            - ./services/mysql/data:/var/lib/mysql
         networks:
             - back
 
@@ -51,12 +41,6 @@ services:
             PMA_PASSWORD: bar
         networks:
             - back
-
-
-
-volumes:
-    mysql_data:
-        driver: local
 
 networks:
     front:

@@ -1,3 +1,4 @@
+#Comment this line if you want git push this big file
 .DS_STORE
 .vscode
 .idea
