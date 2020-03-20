@@ -1,5 +1,5 @@
 # Setup Prestashop
-
+> Not recommended / this setup is build on alpine linux 3.7 which it native libc isn't enough to run this php-fpm/nginx setup
 ### 1. Init prestashop folder
 
 `cd simple-presta-nginx`
